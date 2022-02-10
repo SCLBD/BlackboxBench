@@ -1,7 +1,7 @@
 
 ### Setup
 
-### Running Attacks
+### Running Query-based Attacks
 
 After modifying the attacks config files in `config-jsons` as desired, include config files of the considered attacks in `attack_cifar10.py` as follows:
 
@@ -13,32 +13,39 @@ python attack_cifar10.py ***.json
 
 | Score-Based Black-box attack|Function name| Paper| 
 | :------------- |:-------------|:-----|
-| NES Attack   | nes_attack.py NESAttack |Black-box Adversarial Attacks with Limited Queries and Information|
-| ZO-signSGD  | zo_sign_agd_attack.py ZOSignSGDAttack |signSGD via Zeroth-Order Oracle|
-| Bandit Attack   | bandit_attack.py BanditAttack |Prior Convictions: Black-Box Adversarial Attacks with Bandits and Priors|
-| SimBA   | simple_attack.py SimpleAttack |Simple Black-box Adversarial Attacks|
-| Parsimonious Attack  | parsimonious_attack.py ParsimoniousAttack |Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization|
-| Sign Hunter   | sign_attack.py SignAttack |Sign Bits Are All You Need for Black-Box Attacks|
-| Square Attack   | square_attack.py SquareAttack |Square Attack: a query-efficient black-box adversarial attack via random search|
+| NES Attack   | nes_attack.py NESAttack |Black-box Adversarial Attacks with Limited Queries and Information| ICML 2018|
+| ZO-signSGD  | zo_sign_agd_attack.py ZOSignSGDAttack |signSGD via Zeroth-Order Oracle| ICLR 2019|
+| Bandit Attack   | bandit_attack.py BanditAttack |Prior Convictions: Black-Box Adversarial Attacks with Bandits and Priors| ICML 2019|
+| SimBA   | simple_attack.py SimpleAttack |Simple Black-box Adversarial Attacks| ICML 2019|
+| Parsimonious Attack  | parsimonious_attack.py ParsimoniousAttack |Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization| ICML 2019|
+| Sign Hunter   | sign_attack.py SignAttack |Sign Bits Are All You Need for Black-Box Attacks| ICLR 2020|
+| Square Attack   | square_attack.py SquareAttack |Square Attack: a query-efficient black-box adversarial attack via random search| ECCV 2020|
+| Meta Square Attack| meta_square_attack.py |Meta-Learning the Search Distribution of Black-Box Random Search Based Adversarial Attacks| NeurIPS 2021|
+
 
 
 | Decision-Based Black-box attack|Function name| Paper| 
 | :------------- |:-------------|:-----|
-| Boundary Attack | boundary_attack.py BoundaryAttack |Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models|
-| Evolutionary Attack  | evo_attack.py EvolutionaryAttack |Efficient Decision based Blackbox Adversarial Attacks on Face Recognition|
-| Sign-OPT   | sign_opt_attack.py SignOPTAttack | Sign OPT: A Query Efficient Hard label Adversarial Attack|
-| OPT   | opt_attack.py OptAttack |Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach|
-| GeoDA   | geoda_attack.py GeoDAttack |GeoDA: a geometric framework for blackbox adversarial attacks|
-| HSJA   | hsja_attack.py HSJAttack | HopSkipJumpAttack: A Query Efficient Decision Based Attack|
-| Sign Flip Attack   | sign_flip_attack.py SignFlipAttack |Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip|
-| RayS   | rays_attack.py RaySAttack | RayS: A Ray Searching Method for Hard-label Adversarial Attack|
+| Boundary Attack | boundary_attack.py BoundaryAttack |Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models| ICLR 2017|
+| OPT   | opt_attack.py OptAttack |Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach| ICLR 2019|
+| Sign-OPT   | sign_opt_attack.py SignOPTAttack | Sign OPT: A Query Efficient Hard label Adversarial Attack| ICLR 2020|
+| Evolutionary Attack  | evo_attack.py EvolutionaryAttack |Efficient Decision based Blackbox Adversarial Attacks on Face Recognition|CVPR 2019|
+| GeoDA   | geoda_attack.py GeoDAttack |GeoDA: a geometric framework for blackbox adversarial attacks| CVPR 2020|
+| HSJA   | hsja_attack.py HSJAttack | HopSkipJumpAttack: A Query Efficient Decision Based Attack| SP 2020|
+| Sign Flip Attack   | sign_flip_attack.py SignFlipAttack |Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip| ECCV 2020|
+| RayS   | rays_attack.py RaySAttack | RayS: A Ray Searching Method for Hard-label Adversarial Attack| KDD 2020|
 
 
 
 ### Supported dataset
-CIFAR10, ImageNet
+CIFAR-10, ImageNet
 
-### Attack result (attack success rate, average number and median number of success attacks)
+### Supported testing models
+
+You can test all models trained on CIFAR-10 and ImageNet by adding loading code of your testing model in utils/model_loader.py.
+
+
+### Attack result of query-based attacks (attack success rate, average number and median number of success attacks)
 
 #### Score-based Attacks
 
