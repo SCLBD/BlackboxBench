@@ -1,0 +1,24 @@
+{
+  "_comment1": "===== DATASET CONFIGURATION =====",
+  "dset_name": "cifar10",
+  "dset_config": {},
+  "_comment2": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "attack_name": "NESAttack",
+  "attack_config": {
+    "batch_size" : 100,
+    "name": "NES",
+    "epsilon": 12.75,
+    "p": "inf",
+    "fd_eta": 2.55,
+    "lr": 2.55,
+    "q": 15,
+    "max_loss_queries": 10000
+  },
+  "device": "cpu",
+  "modeln": "vgg",
+  "target": false,
+  "target_type": "median",
+  "seed": 12345
+}

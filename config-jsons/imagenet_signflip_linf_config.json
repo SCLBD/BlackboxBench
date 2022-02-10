@@ -1,0 +1,21 @@
+{
+  "_comment1": "===== DATASET CONFIGURATION =====",
+  "dset_name": "imagenet_sub",
+  "dset_config": {},
+  "_comment2": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 1000,
+  "_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "attack_name": "SignFlipAttack",
+  "attack_config": {
+    "batch_size": 1,
+    "epsilon": 0.05,
+    "p": "inf",
+    "resize_factor": 1.0,
+    "max_queries": 10000
+  },
+  "device": "gpu",
+  "modeln": "Resnet50",
+  "target": false,
+  "target_type": "median",
+  "seed":123
+}
