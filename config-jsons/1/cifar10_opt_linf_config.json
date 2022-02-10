@@ -1,0 +1,21 @@
+{
+  "_comment1": "===== DATASET CONFIGURATION =====",
+  "dset_name": "cifar10",
+  "dset_config": {},
+  "_comment2": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "eval_batch_size": 1,
+  "_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "attack_name": "OptAttack",
+  "attack_config": {
+    "epsilon": 12.75,
+    "p": "inf",
+    "alpha": 0.2,
+    "beta": 0.001,
+    "max_queries": 20000
+  },
+  "device": "cpu",
+  "modeln": "vgg",
+  "target": false,
+  "target_type": "median"
+}

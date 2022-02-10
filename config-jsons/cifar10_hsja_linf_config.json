@@ -1,0 +1,26 @@
+{
+  "_comment1": "===== DATASET CONFIGURATION =====",
+  "dset_name": "cifar10",
+  "dset_config": {},
+  "_comment2": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "attack_name": "HSJAttack",
+  "attack_config": {
+    "batch_size": 1,
+    "epsilon": 12.75,
+    "p": "inf",
+    "max_queries": 10000,
+    "gamma": 1.0,
+    "stepsize_search": "geometric_progression",
+    "max_num_evals": 10000,
+    "init_num_evals": 100,
+    "EOT": 1,
+    "sigma": 0
+  },
+  "device": "gpu",
+  "modeln": "wrn28",
+  "target": false,
+  "target_type": "median",
+  "seed":123
+}
