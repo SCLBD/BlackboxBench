@@ -1,7 +1,95 @@
+### README
 
-### Setup
 
-### Running Query-based Attacks
+### Instructions:
+The code is well-organized. Users can use and extend upon it with little efforts. 
+
+B-box is organized as follows:
+```
+B-box/
+  |--attacks/
+  | |--decision-based attacks/ # contain 9 decision-based attack methods, presented by python files.
+  | |--score-based attacks/ # contain 10 score-based attack methods, presented by python files.
+  | |--transfer-based attacks/ # contain 11 transfer-based attack methods in flag.py
+  |--config-jsons/ #  contain json files which set the experiment configuration. You can write json files to configurate your experiment by following our existing format.
+  |--datasets/
+  | |--cifar10.py # Ultilities for importing CIFAR10 dataset.
+  | |--dataset.py # A wrapper for datasets such as MNIST, CIFAR10, ImageNet.
+  | |--imagenet.py #  A wrapper for ImageNet validation set, which is a simple loader with the appropriate transforms.
+  |--models/ # contain different models for attack.
+  |--pics/ # Records of some experiment outputs.
+  |--requirments/ # contain the conda enviroment requirment and pyhon files about how to download CIFAR10 dataset and ImageNet dataset.
+  |--utils/ 
+  | |--compute.py # implements handy numerical computational functions.
+  | |--misc.py # helper functions
+  | |--model_loader.py # load different model according to configuration file.
+  |--.gitignore
+  |--README.md
+  |--attack_cifar10.py # main python file to run on CIFAR10.
+  |--attack_imagenet.py #main python file to run on ImageNet.
+```
+Users can modify the configuration file (***.json) to run different attack methods on different models with l-infty norm or l-2 norm.
+
+### 1. Pretrain models （师兄介绍一下如何预训练被攻击的模型)
+
+### 2. Load pretrained models
+Before users run the main file (`attack_cifar10.py` & `attack_imagenet.py`), they need to load pretrained model with `.pth` file. The following part is an example of how to load `Wide-Resnet-28` pretrained on `CIFAR10`. Users need to put pretrained model file '`cifar_wrn_28.pth`' into '`pretrained_models/`' and change the file path accordingly in `model_loader.py`.
+
+```
+elif model_name == 'wrn28':
+	TRAINED_MODEL_PATH = data_path_join('pretrained_models/wrn_adv/')
+	filename = 'cifar_wrn_28.pth'
+	pretrained_model = wrn.WideNet()
+	pretrained_model = torch.nn.DataParallel(pretrained_model)
+	checkpoint = torch.load(os.path.join(TRAINED_MODEL_PATH, filename))
+	# if hasattr(pretrained_model, 'module'):
+	#     pretrained_model = pretrained_model.module
+	pretrained_model.load_state_dict(checkpoint['net'])
+```
+
+### 3. Start to attack via different methods on different pretrained models.
+
+The following part is about how to modify a config-json file as desired. Here is an example config-json file for `Signopt Attack` on `Wide-Resnet-28` (`CIFAR10 `dataset).
+```
+{
+	"_comment1": "===== DATASET CONFIGURATION =====",
+	"dset_name": "cifar10", #Users can change the dataset here.
+	"dset_config": {},
+	"_comment2": "===== EVAL CONFIGURATION =====",
+	"num_eval_examples": 10000,  
+	"_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+	"attack_name": "SignOPTAttack", #We choose Signopt attack method.
+	"attack_config": {
+	"batch_size": 1,
+	"epsilon": 255,
+	"p": "2", #set the perturbation norm to be l-2 norm, while "inf" represents l-infty norm.
+	"alpha": 0.2,
+	"beta": 0.001,
+	"svm": false,
+	"momentum": 0,
+	"max_queries": 10000, #We use unified maximum queries number to be 10000. 
+	"k": 200,
+	"sigma": 0
+	  },
+	"device": "gpu",
+	"modeln": "wrn28", #the name should be in accordance with the one in model_loader.py
+	"target": false, #Users can choose to run targeted attack(true) or untargeted attack(false).
+	"target_type": "median",
+	"seed":123
+	}
+  
+```
+We set the maxium queries to be `10000` on all tests and the attack budget will be set uniformly by 
+```
+CIFAR: 	l_inf：0.05 = 12.75/255, l_2: 1 = 255/255
+ImageNet: l_inf: 0.05 =  12.75/255, l_2: 5= 1275/255	
+```
+
+where `l_inf` represents l-infty norm perturbation and `l_2` represents l-2 norm perturbation.
+
+
+
+### 4.Running Attacks
 
 After modifying the attacks config files in `config-jsons` as desired, include config files of the considered attacks in `attack_cifar10.py` as follows:
 
@@ -33,7 +121,8 @@ python attack_cifar10.py ***.json
 | GeoDA   | geoda_attack.py GeoDAttack |GeoDA: a geometric framework for blackbox adversarial attacks CVPR 2020|
 | HSJA   | hsja_attack.py HSJAttack | HopSkipJumpAttack: A Query Efficient Decision Based Attack SP 2020|
 | Sign Flip Attack   | sign_flip_attack.py SignFlipAttack |Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip ECCV 2020|
-| RayS   | rays_attack.py RaySAttack | RayS: A Ray Searching Method for Hard-label Adversarial Attack KDD 2020|
+| RayS  | rays_attack.py RaySAttack | RayS: A Ray Searching Method for Hard-label Adversarial Attack KDD 2020|
+| PSJA  | psja_attack.py PSJAAttack | PopSkipJump: Decision-Based Attack for Probabilistic Classifiers ICML 2021|   
 
 
 
