@@ -31,7 +31,8 @@ B-box/
 Users can modify the configuration file (***.json) to run different attack methods on different models with l-infty norm or l-2 norm.
 
 ### 1. Pretrain models:
-+ CIFAR-10: ResNet-50, WideResNet-28, AT-$\ell_{\infty}$
+Here, we test the contained attack methods on the below models.
++ CIFAR-10: ResNet-50, WideResNet-28, AT-l_inf-WideResNet-28 [with extra data (Gowal et al., 2020)](https://arxiv.org/abs/2010.03593), AT-l_inf-WideResNet-28 [with data from DDPM (Rebuffi et al., 2021)](https://arxiv.org/abs/2103.01946).
 
 ### 2. Load pretrained models
 Before users run the main file (`attack_cifar10.py` & `attack_imagenet.py`), they need to load pretrained model with `.pth` file. The following part is an example of how to load `Wide-Resnet-28` pretrained on `CIFAR10`. Users need to put pretrained model file '`cifar_wrn_28.pth`' into '`pretrained_models/`' and change the file path accordingly in `model_loader.py`.
