@@ -9,7 +9,7 @@ B-box is organized as follows:
 B-box/
   |--attacks/
   | |--decision-based attacks/ # contain 9 decision-based attack methods, presented by python files.
-  | |--score-based attacks/ # contain 10 score-based attack methods, presented by python files.
+  | |--score-based attacks/ # contain 8 score-based attack methods, presented by python files.
   | |--transfer-based attacks/ # contain 11 transfer-based attack methods in flag.py
   |--config-jsons/ #  contain json files which set the experiment configuration. You can write json files to configurate your experiment by following our existing format.
   |--datasets/
