@@ -133,7 +133,7 @@ python attack_cifar10.py ***.json
 
 
 ### Supported dataset
-CIFAR-10, ImageNet
+[CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), [ImageNet](https://www.kaggle.com/c/nips-2017-non-targeted-adversarial-attack/overview/dataset). Here, we test the contained attack methods on the whole CIFAR-10 testing set and ImageNet competition dataset comprised of 1000 samples.
 
 ### Supported testing models
 
