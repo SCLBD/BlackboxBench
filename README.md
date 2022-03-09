@@ -6,7 +6,7 @@ The code is well-organized. Users can use and extend upon it with little efforts
 
 B-box is organized as follows:
 ```
-**B-box/
+** B-box/
   |--attacks/
   | |--decision-based attacks/ # contain 9 decision-based attack methods, presented by python files.
   | |--score-based attacks/ # contain 8 score-based attack methods, presented by python files.
