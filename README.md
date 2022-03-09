@@ -6,7 +6,7 @@ The code is well-organized. Users can use and extend upon it with little efforts
 
 B-box is organized as follows:
 ```
-** B-box/
+B-box/
   |--attacks/
   | |--decision-based attacks/ # contain 9 decision-based attack methods, presented by python files.
   | |--score-based attacks/ # contain 8 score-based attack methods, presented by python files.
@@ -30,7 +30,8 @@ B-box is organized as follows:
 ```
 Users can modify the configuration file (***.json) to run different attack methods on different models with l-infty norm or l-2 norm.
 
-### 1. Pretrain models （师兄介绍一下如何预训练被攻击的模型)
+### 1. Pretrain models:
++ CIFAR-10: ResNet-50, WideResNet-28, AT-$\ell_{\infty}$
 
 ### 2. Load pretrained models
 Before users run the main file (`attack_cifar10.py` & `attack_imagenet.py`), they need to load pretrained model with `.pth` file. The following part is an example of how to load `Wide-Resnet-28` pretrained on `CIFAR10`. Users need to put pretrained model file '`cifar_wrn_28.pth`' into '`pretrained_models/`' and change the file path accordingly in `model_loader.py`.
