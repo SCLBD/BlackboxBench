@@ -1,3 +1,14 @@
+'''
+@inproceedings{Chen2020boosting,
+    title={Boosting Decision-based Black-box Adversarial Attacks with Random Sign Flip},
+    author={Chen, Weilun and Zhang, Zhaoxiang and Hu, Xiaolin and Wu, Baoyuan},
+    Booktitle = {Proceedings of the European Conference on Computer Vision},
+    year={2020}
+}
+
+rewrite from https://github.com/wubaoyuan/Sign-Flip-Attack
+'''
+
 """
 Implements Sign Flip
 """
