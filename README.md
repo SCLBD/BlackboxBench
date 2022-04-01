@@ -183,5 +183,5 @@ For ResNet-50 and WideResNet-28, we train them by using the code from this [gith
 For ResNet-50 and Inception-v3, we use the provided pretrained model from torchvision.
 
 ### Acknowledgments
-The part of Our code is adapted from [https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter](https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter)
+The part of Our code is adapted from [https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter](https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter).
 
