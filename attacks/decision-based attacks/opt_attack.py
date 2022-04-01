@@ -1,4 +1,11 @@
 '''
+@article{cheng2018query,
+  title={Query-efficient hard-label black-box attack: An optimization-based approach},
+  author={Cheng, Minhao and Le, Thong and Chen, Pin-Yu and Yi, Jinfeng and Zhang, Huan and Hsieh, Cho-Jui},
+  journal={arXiv preprint arXiv:1807.04457},
+  year={2018}
+}
+
 rewrite from  https://github.com/cmhcbb/attackbox
 '''
 
