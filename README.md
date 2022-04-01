@@ -138,7 +138,7 @@ where `l_inf` represents l_infty norm perturbation and `l_2` represents l_2 norm
 
 #### Run Attacks
 
-After modifying the attacks config files in `config-jsons` as desired, include config files of the considered attacks in `attack_cifar10.py` as follows:
+After modifying the attacks config files in [config-jsons](./config-jsons) as desired, include config files of the considered attacks in [attack_cifar10.py](./attack_cifar10.py) as follows:
 
 ```
 python attack_cifar10.py ***.json
