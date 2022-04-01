@@ -1,3 +1,16 @@
+'''
+@inproceedings{
+al-dujaili2020sign,
+title={Sign Bits Are All You Need for Black-Box Attacks},
+author={Abdullah Al-Dujaili and Una-May O'Reilly},
+booktitle={International Conference on Learning Representations},
+year={2020},
+url={https://openreview.net/forum?id=SygW0TEFwH}
+}
+
+rewrite from   https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter
+'''
+
 """
 Implements Bandit Attack from Ilyas et al. 2018
 """
