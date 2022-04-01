@@ -1,3 +1,28 @@
+'''
+@article{rauber2017foolboxnative,
+  doi = {10.21105/joss.02607},
+  url = {https://doi.org/10.21105/joss.02607},
+  year = {2020},
+  publisher = {The Open Journal},
+  volume = {5},
+  number = {53},
+  pages = {2607},
+  author = {Jonas Rauber and Roland Zimmermann and Matthias Bethge and Wieland Brendel},
+  title = {Foolbox Native: Fast adversarial attacks to benchmark the robustness of machine learning models in PyTorch, TensorFlow, and JAX},
+  journal = {Journal of Open Source Software}
+}
+
+@inproceedings{rauber2017foolbox,
+  title={Foolbox: A Python toolbox to benchmark the robustness of machine learning models},
+  author={Rauber, Jonas and Brendel, Wieland and Bethge, Matthias},
+  booktitle={Reliable Machine Learning in the Wild Workshop, 34th International Conference on Machine Learning},
+  year={2017},
+  url={http://arxiv.org/abs/1707.04131},
+}
+
+rewrite from https://github.com/bethgelab/foolbox/blob/master/foolbox/attacks/boundary_attack.py
+'''
+
 """
 Implements Boundary Attack
 """
