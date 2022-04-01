@@ -48,7 +48,7 @@ Please see the [requirement.txt](./requirement.txt).
 ---
 ### Usage:
 #### Code organization
-The code is well-organized. Users can use and extend upon it with little efforts. 
+The code is well-organized. You can use and extend upon it with little efforts. 
 
 B-box is organized as follows:
 ```
