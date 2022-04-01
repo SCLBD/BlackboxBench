@@ -27,6 +27,7 @@ B-Box is a toolbox containing mainstreamed adversarial black-box attack methods 
 - [Supported attacks](#supported-attacks)
 - [Supported datasets](#supported-datasets)
 - [Supported testing models](#supported-testing-models)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -180,4 +181,7 @@ For ResNet-50 and WideResNet-28, we train them by using the code from this [gith
 
 + **ImageNet**: ResNet-50, Inception-v3, AT-l_inf-ResNet-50 (4/255) [(Salman et al., 2020)](https://github.com/microsoft/robust-models-transfer), FastAT-l_inf-ResNet-50 (4/255) [(Wong et al., 2020)](https://github.com/locuslab/fast_adversarial), Feature-Denosing-ResNet-152 [(Xie et al., 2019)](https://github.com/facebookresearch/ImageNet-Adversarial-Training).
 For ResNet-50 and Inception-v3, we use the provided pretrained model from torchvision.
+
+### Acknowledgments
+The part of Our code is adapted from [https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter](https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter)
 
