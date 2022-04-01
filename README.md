@@ -9,7 +9,7 @@ B-Box is a toolbox containing mainstreamed adversarial black-box attack methods 
 
 - Attack methods: 
 	- query-based attack methods: 
-		- `7 score-based attacks`: [NES](https://arxiv.org/abs/1804.08598), [ZoSignSGD](https://openreview.net/forum?id=BJe-DsC5Fm), [Bandit-prior](https://arxiv.org/abs/1807.07978), [ECO attack](https://arxiv.org/abs/1905.06635), [SimBA](https://arxiv.org/abs/1905.07121), [SignHunter](https://openreview.net/forum?id=SygW0TEFwH), [Sqaure attack](https://arxiv.org/abs/1912.00049).
+		- `7 score-based attacks`: [NES](https://arxiv.org/abs/1804.08598), [ZOSignSGD](https://openreview.net/forum?id=BJe-DsC5Fm), [Bandit-prior](https://arxiv.org/abs/1807.07978), [ECO attack](https://arxiv.org/abs/1905.06635), [SimBA](https://arxiv.org/abs/1905.07121), [SignHunter](https://openreview.net/forum?id=SygW0TEFwH), [Sqaure attack](https://arxiv.org/abs/1912.00049).
 		- `8 decision-based attacks`: [Boundary attack](https://arxiv.org/abs/1712.04248), [OPT attack](https://arxiv.org/abs/1807.04457), [Sign-OPT](https://arxiv.org/abs/1909.10773), [Evoluationary attack](https://arxiv.org/abs/1904.04433), [GeoDA](https://arxiv.org/abs/2003.06468), [HSJA](https://arxiv.org/abs/1904.02144), [Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php), [RayS](https://arxiv.org/abs/2006.12792).
 	- transfer attack methods: `Coming soon!`
 - Datasets: CIFAR-10, ImageNet.
