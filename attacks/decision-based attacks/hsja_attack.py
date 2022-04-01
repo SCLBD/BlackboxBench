@@ -1,4 +1,13 @@
 '''
+@inproceedings{chen2020hopskipjumpattack,
+  title={Hopskipjumpattack: A query-efficient decision-based attack},
+  author={Chen, Jianbo and Jordan, Michael I and Wainwright, Martin J},
+  booktitle={2020 ieee symposium on security and privacy (sp)},
+  pages={1277--1294},
+  year={2020},
+  organization={IEEE}
+}
+
 rewrite from  https://github.com/cmhcbb/attackbox
 '''
 
