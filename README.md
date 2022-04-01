@@ -7,12 +7,13 @@
 
 B-Box is a toolbox containing mainstreamed adversarial black-box attack methods implemented based on PyTorch. You can easily adopt it to evaluate robustness of your ML models or design the better attack methods. Meanwhile, we also provide a benchmark which evaluate their attack performance against several defense methods. Currently, we support:
 
-- Datasets: CIFAR-10, ImageNet.
 - Attack methods: 
 	- query-based attack methods: 
 		- `7 score-based attacks`: [NES](https://arxiv.org/abs/1804.08598), [ZoSignSGD](https://openreview.net/forum?id=BJe-DsC5Fm), [Bandit-prior](https://arxiv.org/abs/1807.07978), [ECO attack](https://arxiv.org/abs/1905.06635), [SimBA](https://arxiv.org/abs/1905.07121), [SignHunter](https://openreview.net/forum?id=SygW0TEFwH), [Sqaure attack](https://arxiv.org/abs/1912.00049).
 		- `8 decision-based attacks`: [Boundary attack](https://arxiv.org/abs/1712.04248), [OPT attack](https://arxiv.org/abs/1807.04457), [Sign-OPT](https://arxiv.org/abs/1909.10773), [Evoluationary attack](https://arxiv.org/abs/1904.04433), [GeoDA](https://arxiv.org/abs/2003.06468), [HSJA](https://arxiv.org/abs/1904.02144), [Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php), [RayS](https://arxiv.org/abs/2006.12792).
 	- transfer attack methods: `Coming soon!`
+- Datasets: CIFAR-10, ImageNet.
+- Models: Pretrained models on the above two datasets.
 ---
 <font size=5><center><b> Table of Contents </b> </center></font>
 
@@ -144,26 +145,26 @@ python attack_cifar10.py ***.json
 
 | Score-Based Black-box attack|Function name| Paper| 
 | :------------- |:-------------|:-----|
-| NES Attack   | nes_attack.py NESAttack |Black-box Adversarial Attacks with Limited Queries and Information ICML 2018|
-| ZO-signSGD  | zo_sign_agd_attack.py ZOSignSGDAttack |signSGD via Zeroth-Order Oracle ICLR 2019|
-| Bandit Attack   | bandit_attack.py BanditAttack |Prior Convictions: Black-Box Adversarial Attacks with Bandits and Priors ICML 2019|
-| SimBA   | simple_attack.py SimpleAttack |Simple Black-box Adversarial Attacks ICML 2019|
-| Parsimonious Attack  | parsimonious_attack.py ParsimoniousAttack |Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization ICML 2019|
-| Sign Hunter   | sign_attack.py SignAttack |Sign Bits Are All You Need for Black-Box Attacks ICLR 2020|
-| Square Attack   | square_attack.py SquareAttack |Square Attack: a query-efficient black-box adversarial attack via random search ECCV 2020|
+| NES Attack   | nes_attack.py NESAttack |[Black-box Adversarial Attacks with Limited Queries and Information](https://arxiv.org/abs/1804.08598) ICML 2018|
+| ZO-signSGD  | zo_sign_agd_attack.py ZOSignSGDAttack |[signSGD via Zeroth-Order Oracle](https://openreview.net/forum?id=BJe-DsC5Fm) ICLR 2019|
+| Bandit Attack   | bandit_attack.py BanditAttack |[Prior Convictions: Black-Box Adversarial Attacks with Bandits and Priors](https://arxiv.org/abs/1807.07978) ICML 2019|
+| SimBA   | simple_attack.py SimpleAttack |[Simple Black-box Adversarial Attacks](https://arxiv.org/abs/1905.07121) ICML 2019|
+| ECO Attack  | parsimonious_attack.py ParsimoniousAttack |[Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization](https://arxiv.org/abs/1905.06635) ICML 2019|
+| Sign Hunter   | sign_attack.py SignAttack |[Sign Bits Are All You Need for Black-Box Attacks](https://openreview.net/forum?id=SygW0TEFwH) ICLR 2020|
+| Square Attack   | square_attack.py SquareAttack |[Square Attack: a query-efficient black-box adversarial attack via random search](https://arxiv.org/abs/1912.00049) ECCV 2020|
 
 
 
 | Decision-Based Black-box attack|Function name| Paper| 
 | :------------- |:-------------|:-----|
-| Boundary Attack | boundary_attack.py BoundaryAttack |Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models ICLR 2017|
-| OPT   | opt_attack.py OptAttack |Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach ICLR 2019|
-| Sign-OPT   | sign_opt_attack.py SignOPTAttack | Sign OPT: A Query Efficient Hard label Adversarial Attack ICLR 2020|
-| Evolutionary Attack  | evo_attack.py EvolutionaryAttack |Efficient Decision based Blackbox Adversarial Attacks on Face Recognition CVPR 2019|
-| GeoDA   | geoda_attack.py GeoDAttack |GeoDA: a geometric framework for blackbox adversarial attacks CVPR 2020|
-| HSJA   | hsja_attack.py HSJAttack | HopSkipJumpAttack: A Query Efficient Decision Based Attack SP 2020|
-| Sign Flip Attack   | sign_flip_attack.py SignFlipAttack |Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip ECCV 2020|
-| RayS  | rays_attack.py RaySAttack | RayS: A Ray Searching Method for Hard-label Adversarial Attack KDD 2020|
+| Boundary Attack | boundary_attack.py BoundaryAttack |[Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models](https://arxiv.org/abs/1712.04248) ICLR 2017|
+| OPT   | opt_attack.py OptAttack |[Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach](https://arxiv.org/abs/1807.04457) ICLR 2019|
+| Sign-OPT   | sign_opt_attack.py SignOPTAttack | [Sign OPT: A Query Efficient Hard label Adversarial Attack](https://arxiv.org/abs/1909.10773) ICLR 2020|
+| Evolutionary Attack  | evo_attack.py EvolutionaryAttack |[Efficient Decision based Blackbox Adversarial Attacks on Face Recognition](https://arxiv.org/abs/1904.04433) CVPR 2019|
+| GeoDA   | geoda_attack.py GeoDAttack |[GeoDA: a geometric framework for blackbox adversarial attacks](https://arxiv.org/abs/2003.06468) CVPR 2020|
+| HSJA   | hsja_attack.py HSJAttack | [HopSkipJumpAttack: A Query Efficient Decision Based Attack](https://arxiv.org/abs/1904.02144) IEEE S&P 2020|
+| Sign Flip Attack   | sign_flip_attack.py SignFlipAttack |[Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php) ECCV 2020|
+| RayS  | rays_attack.py RaySAttack | [RayS: A Ray Searching Method for Hard-label Adversarial Attack](https://arxiv.org/abs/2006.12792) KDD 2020|
 
 
 
