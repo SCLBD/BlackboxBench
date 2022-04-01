@@ -1,3 +1,14 @@
+'''
+@inproceedings{chen2020rays,
+  title={RayS: A Ray Searching Method for Hard-label Adversarial Attack},
+  author={Chen, Jinghui and Gu, Quanquan},
+  booktitle={Proceedings of the 26rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  year={2020}
+}
+
+rewrite from https://github.com/uclaml/RayS
+'''
+
 """
 Implements RayS Attack
 """
