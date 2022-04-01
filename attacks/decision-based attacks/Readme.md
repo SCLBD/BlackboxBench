@@ -1,1 +1,11 @@
-
+## Files in the folder
+- `pytorch_ares/`
+  - `data/`: The code supports cifar10 and imagenet datasets.
+  - `test/`: Some toyexamples for testing adversarial attack methods and adversarial defense methods.
+  - `pytorch_ares/`
+    - `dataset_torch/`: Data processing for cifar10 and imagenet datasets.
+    - `attack_torch/`: PyTorch implementation of some adversarial attack methods.
+    - `cifar10_model/`: PyTorch implementation of some adversarial defense models on the cifar10 dataset.
+    - `defense_torch/`: PyTorch implementation of some defense methods.
+  - `third_party/`: Other open source repositories.
+  - `attack_benchmark/`: Adversarial robustness benchmarks for image classification.
