@@ -1,4 +1,12 @@
 '''
+@inproceedings{dong2019efficient,
+  title={Efficient decision-based black-box adversarial attacks on face recognition},
+  author={Dong, Yinpeng and Su, Hang and Wu, Baoyuan and Li, Zhifeng and Liu, Wei and Zhang, Tong and Zhu, Jun},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={7714--7722},
+  year={2019}
+}
+
 rewrite from https://github.com/thu-ml/ares/blob/main/pytorch_ares/pytorch_ares/attack_torch/evolutionary.py
 '''
 
