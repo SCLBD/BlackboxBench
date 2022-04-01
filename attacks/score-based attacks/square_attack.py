@@ -1,3 +1,14 @@
+'''
+@article{ACFH2020square,
+  title={Square Attack: a query-efficient black-box adversarial attack via random search},
+  author={Andriushchenko, Maksym and Croce, Francesco and Flammarion, Nicolas and Hein, Matthias},
+  conference={ECCV},
+  year={2020}
+}
+
+rewrite from https://github.com/max-andr/square-attack
+'''
+
 """
 Implements Square attacks
 """
