@@ -33,7 +33,7 @@ B-Box is a toolbox containing mainstreamed adversarial black-box attack methods 
 
 ### Quick Start:
 
-After modifying the attacks config files in `config-jsons` as desired, include config files of the considered attacks in `attack_cifar10.py` or `attack_imagenet.py` as follows:
+After modifying the attacks config files in [config-jsons](./config-jsons/) as desired, include config files of the considered attacks in [attack_cifar10.py](./attack_cifar10.py) or [attack_imagenet.py](./attack_imagenet.py) as follows:
 
 ```
 python attack_cifar10.py ***.json
@@ -42,7 +42,7 @@ python attack_imagenet.py ***.json
 ```
 ---
 ### Requirement
-Please see the `requirement.txt`. 
+Please see the [requirement.txt](./requirement.txt). 
 
 
 ---
