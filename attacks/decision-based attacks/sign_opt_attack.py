@@ -1,5 +1,5 @@
 '''
-rewrite from  https://github.com/machanic/MetaSimulator/tree/master/parsimonious_attack
+rewrite from   https://github.com/cmhcbb/attackbox
 '''
 
 """
