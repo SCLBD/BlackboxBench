@@ -148,25 +148,25 @@ python attack_cifar10.py ***.json
 | Score-Based Black-box attack|File name| Paper| 
 | :------------- |:-------------|:-----|
 | NES Attack   | [nes_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/nes_attack.py) |[Black-box Adversarial Attacks with Limited Queries and Information](https://arxiv.org/abs/1804.08598) ICML 2018|
-| ZO-signSGD  | zo_sign_agd_attack.py  |[signSGD via Zeroth-Order Oracle](https://openreview.net/forum?id=BJe-DsC5Fm) ICLR 2019|
-| Bandit Attack   | bandit_attack.py |[Prior Convictions: Black-Box Adversarial Attacks with Bandits and Priors](https://arxiv.org/abs/1807.07978) ICML 2019|
-| SimBA   | simple_attack.py |[Simple Black-box Adversarial Attacks](https://arxiv.org/abs/1905.07121) ICML 2019|
-| ECO Attack  | parsimonious_attack.py |[Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization](https://arxiv.org/abs/1905.06635) ICML 2019|
-| Sign Hunter   | sign_attack.py |[Sign Bits Are All You Need for Black-Box Attacks](https://openreview.net/forum?id=SygW0TEFwH) ICLR 2020|
-| Square Attack   | square_attack.py |[Square Attack: a query-efficient black-box adversarial attack via random search](https://arxiv.org/abs/1912.00049) ECCV 2020|
+| ZO-signSGD  | [zo_sign_agd_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/zo_sign_sgd_attack.py)  |[signSGD via Zeroth-Order Oracle](https://openreview.net/forum?id=BJe-DsC5Fm) ICLR 2019|
+| Bandit Attack   | [bandit_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/bandit_attack.py) |[Prior Convictions: Black-Box Adversarial Attacks with Bandits and Priors](https://arxiv.org/abs/1807.07978) ICML 2019|
+| SimBA   | [simple_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/simple_attack.py) |[Simple Black-box Adversarial Attacks](https://arxiv.org/abs/1905.07121) ICML 2019|
+| ECO Attack  | [parsimonious_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/parsimonious_attack.py) |[Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization](https://arxiv.org/abs/1905.06635) ICML 2019|
+| Sign Hunter   | [sign_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/sign_attack.py) |[Sign Bits Are All You Need for Black-Box Attacks](https://openreview.net/forum?id=SygW0TEFwH) ICLR 2020|
+| Square Attack   | [square_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/square_attack.py) |[Square Attack: a query-efficient black-box adversarial attack via random search](https://arxiv.org/abs/1912.00049) ECCV 2020|
 
 
 
 | Decision-Based Black-box attack|File name| Paper| 
 | :------------- |:-------------|:-----|
-| Boundary Attack | boundary_attack.py |[Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models](https://arxiv.org/abs/1712.04248) ICLR 2017|
-| OPT   | opt_attack.py |[Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach](https://arxiv.org/abs/1807.04457) ICLR 2019|
-| Sign-OPT   | sign_opt_attack.py | [Sign OPT: A Query Efficient Hard label Adversarial Attack](https://arxiv.org/abs/1909.10773) ICLR 2020|
-| Evolutionary Attack  | evo_attack.py |[Efficient Decision based Blackbox Adversarial Attacks on Face Recognition](https://arxiv.org/abs/1904.04433) CVPR 2019|
-| GeoDA   | geoda_attack.py |[GeoDA: a geometric framework for blackbox adversarial attacks](https://arxiv.org/abs/2003.06468) CVPR 2020|
-| HSJA   | hsja_attack.py | [HopSkipJumpAttack: A Query Efficient Decision Based Attack](https://arxiv.org/abs/1904.02144) IEEE S&P 2020|
-| Sign Flip Attack   | sign_flip_attack.py |[Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php) ECCV 2020|
-| RayS  | rays_attack.py | [RayS: A Ray Searching Method for Hard-label Adversarial Attack](https://arxiv.org/abs/2006.12792) KDD 2020|
+| Boundary Attack | [boundary_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/boundary_attack.py) |[Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models](https://arxiv.org/abs/1712.04248) ICLR 2017|
+| OPT   | [opt_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/opt_attack.py) |[Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach](https://arxiv.org/abs/1807.04457) ICLR 2019|
+| Sign-OPT   | [sign_opt_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/sign_opt_attack.py) | [Sign OPT: A Query Efficient Hard label Adversarial Attack](https://arxiv.org/abs/1909.10773) ICLR 2020|
+| Evolutionary Attack  | [evo_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/evo_attack.py) |[Efficient Decision based Blackbox Adversarial Attacks on Face Recognition](https://arxiv.org/abs/1904.04433) CVPR 2019|
+| GeoDA   | [geoda_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/geoda_attack.py) |[GeoDA: a geometric framework for blackbox adversarial attacks](https://arxiv.org/abs/2003.06468) CVPR 2020|
+| HSJA   | [hsja_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/hsja_attack.py) | [HopSkipJumpAttack: A Query Efficient Decision Based Attack](https://arxiv.org/abs/1904.02144) IEEE S&P 2020|
+| Sign Flip Attack   | [sign_flip_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/sign_flip_attack.py) |[Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php) ECCV 2020|
+| RayS  | [rays_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/rays_attack.py) | [RayS: A Ray Searching Method for Hard-label Adversarial Attack](https://arxiv.org/abs/2006.12792) KDD 2020|
 
 
 
