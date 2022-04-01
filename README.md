@@ -129,7 +129,7 @@ The following part is about how to modify a config-json file as desired. Here is
 We set the maxium queries to be `10000` on all tests and the attack budget will be set uniformly by 
 ```
 CIFAR: 	l_inf：0.05 = 12.75/255, l_2: 1 = 255/255
-ImageNet: l_inf: 0.05 =  12.75/255, l_2: 5= 1275/255	
+ImageNet: l_inf: 0.05 =  12.75/255, l_2: 5 = 1275/255	
 ```
 
 where `l_inf` represents l_infty norm perturbation and `l_2` represents l_2 norm perturbation.
