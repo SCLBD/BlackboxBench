@@ -1,3 +1,7 @@
+'''
+rewrite from  https://github.com/machanic/MetaSimulator/tree/master/parsimonious_attack
+'''
+
 """
 Implements Sign_OPT
 """
