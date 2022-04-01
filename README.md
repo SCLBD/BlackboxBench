@@ -74,7 +74,7 @@ B-box/
   |--attack_cifar10.py # main python file to run attacks on CIFAR10.
   |--attack_imagenet.py # main python file to run attacks on ImageNet.
 ```
-Users can modify the configuration file (***.json) to run different attack methods on different models with l-infty norm or l-2 norm.
+Users can modify the configuration file (***.json) to run different attack methods on different models with l_inf norm or l_2 norm.
 
 
 
