@@ -1,4 +1,4 @@
-# B-Box: an adversarial black-box attack methods toolbox to evaluate the robustness of Machine Learning models in Pytorch.
+# B-Box: an adversarial black-box attack toolbox to evaluate the robustness of Deep Learning models in Pytorch.
 
 ![Python 3.6](https://img.shields.io/badge/python-3.6-DodgerBlue.svg?style=plastic)
 ![Pytorch 1.10](https://img.shields.io/badge/pytorch-1.2.0-DodgerBlue.svg?style=plastic)
