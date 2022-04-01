@@ -7,17 +7,22 @@
 
 B-Box is a toolbox containing mainstreamed adversarial black-box attack methods implemented based on PyTorch. You can easily adopt it to evaluate robustness of your ML models or design the better attack methods. Meanwhile, we also provide a benchmark which evaluate their attack performance against several defense methods. Currently, we support:
 
-- Datasets: `CIFAR-10, ImageNet.`
+- Datasets: CIFAR-10, ImageNet.
 - Attack methods: 
-	- query-based attack methods: ` 7 score-based attack and 8 decision-based attack methods.`
+	- query-based attack methods: 
+		- `7 score-based attacks`: [NES](https://arxiv.org/abs/1804.08598), [ZoSignSGD](https://openreview.net/forum?id=BJe-DsC5Fm), [Bandit-prior](https://arxiv.org/abs/1807.07978), [ECO attack](https://arxiv.org/abs/1905.06635), [SimBA](https://arxiv.org/abs/1905.07121), [SignHunter](https://openreview.net/forum?id=SygW0TEFwH), [Sqaure attack](https://arxiv.org/abs/1912.00049).
+		- `8 decision-based attacks`: [Boundary attack](https://arxiv.org/abs/1712.04248), [OPT attack](https://arxiv.org/abs/1807.04457), [Sign-OPT](https://arxiv.org/abs/1909.10773), [Evoluationary attack](https://arxiv.org/abs/1904.04433), [GeoDA](https://arxiv.org/abs/2003.06468), [HSJA](https://arxiv.org/abs/1904.02144), [Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php), [RayS](https://arxiv.org/abs/2006.12792).
 	- transfer attack methods: `Coming soon!`
 ---
 <font size=5><center><b> Table of Contents </b> </center></font>
 
 - [Quick Start](#quick-start)
-- [Dependency](#dependency)
-- 
-
+- [Requirement](#requirement)
+- [Usage](#usage)
+  - [Code organization](#code-organization)
+  - [Load pretrained models](#load-pretrained-models) 
+  - [Set the hyperparameters of attacks](#set-the-hyperparameters-of-attacks)
+  - [Run Attacks](#run-attacks)
 
 ---
 
@@ -28,21 +33,23 @@ After modifying the attacks config files in `config-jsons` as desired, include c
 ```
 python attack_cifar10.py ***.json
 ```
+---
+### Requirement
+Please see the `requirement.txt`. 
 
-### Dependency
 
-
-
-### Instructions:
+---
+### Usage:
+#### Code organization
 The code is well-organized. Users can use and extend upon it with little efforts. 
 
 B-box is organized as follows:
 ```
 B-box/
   |--attacks/
-  | |--decision-based attacks/ # contain 9 decision-based attack methods, presented by python files.
-  | |--score-based attacks/ # contain 8 score-based attack methods, presented by python files.
-  | |--transfer-based attacks/ # contain 11 transfer-based attack methods in flag.py
+  | |--decision-based attacks/ # contain the base attack class file and 8 decision-based attack methods
+  | |--score-based attacks/ # contain the base attack class file and 7 score-based attack methods
+  | |--transfer-based attacks/ # 
   |--config-jsons/ #  contain json files which set the experiment configuration. You can write json files to configurate your experiment by following our existing format.
   |--datasets/
   | |--cifar10.py # Ultilities for importing CIFAR10 dataset.
@@ -57,20 +64,14 @@ B-box/
   | |--model_loader.py # load different model according to configuration file.
   |--.gitignore
   |--README.md
-  |--attack_cifar10.py # main python file to run on CIFAR10.
-  |--attack_imagenet.py #main python file to run on ImageNet.
+  |--attack_cifar10.py # main python file to run attacks on CIFAR10.
+  |--attack_imagenet.py # main python file to run attacks on ImageNet.
 ```
 Users can modify the configuration file (***.json) to run different attack methods on different models with l-infty norm or l-2 norm.
 
-### 1. Pretrain models:
-Here, we test the contained attack methods on the below models.
-+ **CIFAR-10**: ResNet-50, WideResNet-28, AT-l_inf-WideResNet-28 [(with extra data (Gowal et al., 2020))](https://arxiv.org/abs/2010.03593), AT-l_inf-WideResNet-28 [(with data from DDPM (Rebuffi et al., 2021))](https://arxiv.org/abs/2103.01946).
-For ResNet-50 and WideResNet-28, we train them by using the code from this [github repo](https://github.com/kuangliu/pytorch-cifar). 
 
-+ **ImageNet**: ResNet-50, Inception-v3, AT-l_inf-ResNet-50 (4/255) [(Salman et al., 2020)](https://github.com/microsoft/robust-models-transfer), FastAT-l_inf-ResNet-50 (4/255) [(Wong et al., 2020)](https://github.com/locuslab/fast_adversarial), Feature-Denosing-ResNet-152 [(Xie et al., 2019)](https://github.com/facebookresearch/ImageNet-Adversarial-Training).
-For ResNet-50 and Inception-v3, we use the provided pretrained model from torchvision.
 
-### 2. Load pretrained models
+#### Load pretrained models
 Before users run the main file (`attack_cifar10.py` & `attack_imagenet.py`), they need to load pretrained model with `.pth` file. The following part is an example of how to load `Wide-Resnet-28` pretrained on `CIFAR10`. Users need to put pretrained model file '`cifar_wrn_28.pth`' into '`pretrained_models/`' and change the file path accordingly in `model_loader.py`.
 
 ```
@@ -85,7 +86,8 @@ elif model_name == 'wrn28':
 	pretrained_model.load_state_dict(checkpoint['net'])
 ```
 
-### 3. Start to attack via different methods on different pretrained models.
+
+#### Set the hyperparameters of attacks.
 
 The following part is about how to modify a config-json file as desired. Here is an example config-json file for `Signopt Attack` on `Wide-Resnet-28` (`CIFAR10 `dataset).
 ```
@@ -127,14 +129,14 @@ where `l_inf` represents l-infty norm perturbation and `l_2` represents l-2 norm
 
 
 
-### 4.Running Attacks
+#### Run Attacks
 
 After modifying the attacks config files in `config-jsons` as desired, include config files of the considered attacks in `attack_cifar10.py` as follows:
 
 ```
 python attack_cifar10.py ***.json
 ```
-
+---
 ### Supported attack
 
 | Score-Based Black-box attack|Function name| Paper| 
@@ -170,7 +172,12 @@ python attack_cifar10.py ***.json
 ### Supported testing models
 
 You can test all models trained on CIFAR-10 and ImageNet by adding loading code of your testing model in utils/model_loader.py.
+Here, we test the contained attack methods on the below models.
++ **CIFAR-10**: ResNet-50, WideResNet-28, AT-l_inf-WideResNet-28 [(with extra data (Gowal et al., 2020))](https://arxiv.org/abs/2010.03593), AT-l_inf-WideResNet-28 [(with data from DDPM (Rebuffi et al., 2021))](https://arxiv.org/abs/2103.01946).
+For ResNet-50 and WideResNet-28, we train them by using the code from this [github repo](https://github.com/kuangliu/pytorch-cifar). 
 
++ **ImageNet**: ResNet-50, Inception-v3, AT-l_inf-ResNet-50 (4/255) [(Salman et al., 2020)](https://github.com/microsoft/robust-models-transfer), FastAT-l_inf-ResNet-50 (4/255) [(Wong et al., 2020)](https://github.com/locuslab/fast_adversarial), Feature-Denosing-ResNet-152 [(Xie et al., 2019)](https://github.com/facebookresearch/ImageNet-Adversarial-Training).
+For ResNet-50 and Inception-v3, we use the provided pretrained model from torchvision.
 
 ### Attack result of query-based attacks (attack success rate, average number and median number of success attacks)
 
