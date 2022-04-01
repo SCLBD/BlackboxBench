@@ -11,7 +11,6 @@ url={https://openreview.net/forum?id=SygW0TEFwH}
 rewrite from   https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter
 '''
 
-
 """
 Implements ZO-SIGN-SGD attacks from
 "SignSGD via Zeroth-Order Oracle"
