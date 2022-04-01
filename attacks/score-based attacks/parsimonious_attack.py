@@ -1,3 +1,16 @@
+'''
+@InProceedings{ma2021simulator,
+    author    = {Ma, Chen and Chen, Li and Yong, Jun-Hai},
+    title     = {Simulating Unknown Target Models for Query-Efficient Black-Box Attacks},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {11835-11844}
+}
+
+rewrite from  https://github.com/machanic/MetaSimulator/tree/master/parsimonious_attack
+'''
+
 """
 Implements Parsimonious attack
 """
