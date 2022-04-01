@@ -1,6 +1,6 @@
 ## Files in the folder
 - `decision-based attacks/`
-  - `decision_black_box_attack.py`: This is the base attack class file that wrapper all decision-based attacks.
+  - `decision_black_box_attack.py`: **This is the base attack class file that wrapper all decision-based attacks.**
   - `boundary_attack.py`: Code for Boundary Attack: [Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models](https://arxiv.org/abs/1712.04248) ICLR 2017
   - `opt_attack.py`: Code for OPT: [Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach](https://arxiv.org/abs/1807.04457) ICLR 2019
   - `sign_opt.py`: Code for Sign OPT: [Sign OPT: A Query Efficient Hard label Adversarial Attack](https://arxiv.org/abs/1909.10773) ICLR 2020
