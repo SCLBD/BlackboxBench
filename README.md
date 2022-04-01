@@ -79,7 +79,7 @@ Users can modify the configuration file (***.json) to run different attack metho
 
 
 #### Load pretrained models
-Before users run the main file (`attack_cifar10.py` & `attack_imagenet.py`), they need to load pretrained model with `.pth` file. The following part is an example of how to load `Wide-Resnet-28` pretrained on `CIFAR10`. Users need to put pretrained model file '`cifar_wrn_28.pth`' into '`pretrained_models/`' and change the file path accordingly in `model_loader.py`.
+Before users run the main file [attack_cifar10.py](./attack_cifar10.py) & [attack_imagenet.py](./attack_imagenet.py), they need to load pretrained model with `.pth` file. The following part is an example of how to load `Wide-Resnet-28` pretrained on `CIFAR10`. Users need to put pretrained model file '`cifar_wrn_28.pth`' into '`pretrained_models/`' and change the file path accordingly in [utils/model_loader.py](./utils/model_loader.py).
 
 ```
 elif model_name == 'wrn28':
@@ -96,7 +96,7 @@ elif model_name == 'wrn28':
 
 #### Set the hyperparameters of attacks.
 
-The following part is about how to modify a config-json file as desired. Here is an example config-json file for `Signopt Attack` on `Wide-Resnet-28` (`CIFAR10 `dataset).
+The following part is about how to modify a config-json file as desired. Here is an example config-json file for `Signopt Attack` on `Wide-Resnet-28` (`CIFAR10`dataset).
 ```
 {
 	"_comment1": "===== DATASET CONFIGURATION =====",
@@ -132,7 +132,7 @@ CIFAR: 	l_inf：0.05 = 12.75/255, l_2: 1 = 255/255
 ImageNet: l_inf: 0.05 =  12.75/255, l_2: 5= 1275/255	
 ```
 
-where `l_inf` represents l-infty norm perturbation and `l_2` represents l-2 norm perturbation.
+where `l_inf` represents l_infty norm perturbation and `l_2` represents l_2 norm perturbation.
 
 
 
@@ -176,7 +176,7 @@ python attack_cifar10.py ***.json
 
 ### Supported testing models
 
-You can test all models trained on CIFAR-10 and ImageNet by adding loading code of your testing model in `utils/model_loader.py`.
+You can test all models trained on CIFAR-10 and ImageNet by adding loading code of your testing model in [utils/model_loader.py](./utils/model_loader.py).
 Here, we test the contained attack methods on the below models.
 + **CIFAR-10**: ResNet-50, WideResNet-28, AT-l_inf-WideResNet-28 [(with extra data (Gowal et al., 2020))](https://arxiv.org/abs/2010.03593), AT-l_inf-WideResNet-28 [(with data from DDPM (Rebuffi et al., 2021))](https://arxiv.org/abs/2103.01946).
 For ResNet-50 and WideResNet-28, we train them by using the code from this [github repo](https://github.com/kuangliu/pytorch-cifar). 
