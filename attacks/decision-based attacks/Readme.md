@@ -1,7 +1,7 @@
 ## Files in the folder
-- `pytorch_ares/`
-  - `data/`: The code supports cifar10 and imagenet datasets.
-  - `test/`: Some toyexamples for testing adversarial attack methods and adversarial defense methods.
+- `decision-based attacks/`
+  - `decision_black_box_attack,py/`: This is the main python file that run the attack method 
+  - `boundary_attack.py/`: Some toyexamples for testing adversarial attack methods and adversarial defense methods.
   - `pytorch_ares/`
     - `dataset_torch/`: Data processing for cifar10 and imagenet datasets.
     - `attack_torch/`: PyTorch implementation of some adversarial attack methods.
