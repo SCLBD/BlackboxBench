@@ -1,4 +1,11 @@
 '''
+@article{cheng2019sign,
+  title={Sign-opt: A query-efficient hard-label adversarial attack},
+  author={Cheng, Minhao and Singh, Simranjit and Chen, Patrick and Chen, Pin-Yu and Liu, Sijia and Hsieh, Cho-Jui},
+  journal={arXiv preprint arXiv:1909.10773},
+  year={2019}
+}
+
 rewrite from   https://github.com/cmhcbb/attackbox
 '''
 
