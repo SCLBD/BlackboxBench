@@ -1,3 +1,15 @@
+'''
+@inproceedings{rahmati2020geoda,
+  title={Geoda: a geometric framework for black-box adversarial attacks},
+  author={Rahmati, Ali and Moosavi-Dezfooli, Seyed-Mohsen and Frossard, Pascal and Dai, Huaiyu},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={8446--8455},
+  year={2020}
+}
+
+rewrite from https://github.com/thisisalirah/GeoDA
+'''
+
 """
 Implements GeoDA
 """
