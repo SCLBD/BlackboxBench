@@ -5,7 +5,7 @@
 ![CUDA 10.0](https://img.shields.io/badge/cuda-10.0-DodgerBlue.svg?style=plastic)
 ![License CC BY-NC](https://img.shields.io/badge/license-CC_BY--NC-DodgerBlue.svg?style=plastic)
 
-B-Box is a toolbox containing mainstreamed adversarial black-box attack methods implemented based on PyTorch. You can easily adopt it to evaluate robustness of your ML models or design the better attack methods. Meanwhile, we also provide a benchmark which evaluate their attack performance against several defense methods. Currently, we support:
+B-Box is a toolbox containing mainstreamed adversarial black-box attack methods implemented based on [PyTorch](https://pytorch.org). You can easily adopt it to evaluate robustness of your ML models or design the better attack methods. Meanwhile, we also provide a benchmark which evaluate their attack performance against several defense methods. Currently, we support:
 
 - Attack methods: 
 	- query-based attack methods: 
@@ -33,10 +33,12 @@ B-Box is a toolbox containing mainstreamed adversarial black-box attack methods 
 
 ### Quick Start:
 
-After modifying the attacks config files in `config-jsons` as desired, include config files of the considered attacks in `attack_cifar10.py` as follows:
+After modifying the attacks config files in `config-jsons` as desired, include config files of the considered attacks in `attack_cifar10.py` or `attack_imagenet.py` as follows:
 
 ```
 python attack_cifar10.py ***.json
+or 
+python attack_imagenet.py ***.json
 ```
 ---
 ### Requirement
