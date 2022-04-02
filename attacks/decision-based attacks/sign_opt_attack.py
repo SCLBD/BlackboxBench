@@ -15,7 +15,12 @@ The original license is placed at the end of this file.
 The update include:
   1. args and configs
   2. functions modification
-  
+ 
+basic structure for main:
+    1. config args and prior setup
+    2. define functions that implement sign-opt attack, gradient evaluation with two formulas and binary search
+    3. define perturbation
+    
 '''
 
 """
