@@ -14,6 +14,11 @@ year={2020},
 url={https://openreview.net/forum?id=SygW0TEFwH}
 }
 
+basic structure for main:
+1. config args, prior setup
+2. implement NES Attack algorithm
+3. return the output
+
 '''
 
 """
