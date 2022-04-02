@@ -7,6 +7,8 @@ The original license is placed at the end of this file.
 
 '''
 
+'''ResNet in PyTorch.'''
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
