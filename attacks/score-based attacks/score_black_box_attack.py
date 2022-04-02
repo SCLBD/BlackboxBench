@@ -1,3 +1,18 @@
+'''
+
+This file is copied from the following source:
+link: https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter/blob/master/src/attacks/blackbox/black_box_attack.py
+
+The original license is placed at the end of this file.
+
+basic structure for main:
+    1. config args and prior setup
+    2. define funtion that returns a summary of the attack results
+    3. set the score-based attacking
+    4. return the logs
+    
+'''
+
 """
 Implements the base class for black-box attacks
 """
