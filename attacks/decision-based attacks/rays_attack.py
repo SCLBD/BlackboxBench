@@ -150,11 +150,11 @@ class RaySAttack(DecisionBlackBoxAttack):
 
         return adv, q
       
- '''
+'''
  
- Original License
+Original License
  
- MIT License
+MIT License
 
 Copyright (c) 2020 Jinghui Chen, Quanquan Gu
 
