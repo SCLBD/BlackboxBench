@@ -188,6 +188,37 @@ For ResNet-50 and WideResNet-28, we train them by using the code from this [gith
 + **ImageNet**: ResNet-50, Inception-v3, AT-l_inf-ResNet-50 (4/255) [(Salman et al., 2020)](https://github.com/microsoft/robust-models-transfer), FastAT-l_inf-ResNet-50 (4/255) [(Wong et al., 2020)](https://github.com/locuslab/fast_adversarial).
 For ResNet-50 and Inception-v3, we use the provided pretrained model from [torchvision](https://pytorch.org/vision/stable/index.html).
 
+## [Copyright](#copyright)
+
+<a href="#top">[Back to top]</a>
+
+<!-- This repository is licensed by [The Chinese University of Hong Kong, Shenzhen](https://www.cuhk.edu.cn/en) and [Shenzhen Research Institute of Big Data](http://www.sribd.cn/en) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.  -->
+
+This project is built by the Secure Computing Lab of Big Data ([SCLBD](http://scl.sribd.cn/index.html)) at The Chinese University of Hong Kong, Shenzhen and Shenzhen Research Institute of Big Data, directed by Professor [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/home). SCLBD focuses on research of trustworthy AI, including backdoor learning, adversarial examples, federated learning, fairness, etc.
+
+
+## [Citation](#citation)
+
+<a href="#top">[Back to top]</a>
+
+If interested, you can read our recent works about black-box attack and defense methods, and more works about trustworthy AI can be found [here](https://sites.google.com/site/baoyuanwu2015/home).
+
+```
+@inproceedings{dbd-backdoor-defense-iclr2022,
+title={Backdoor Defense via Decoupling the Training Process},
+author={Huang, Kunzhe and Li, Yiming and Wu, Baoyuan and Qin, Zhan and Ren, Kui},
+booktitle={International Conference on Learning Representations},
+year={2022}
+}
+
+@inproceedings{ssba-backdoor-attack-iccv2021,
+title={Invisible backdoor attack with sample-specific triggers},
+author={Li, Yuezun and Li, Yiming and Wu, Baoyuan and Li, Longkang and He, Ran and Lyu, Siwei},
+booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+pages={16463--16472},
+year={2021}
+}
+```
 
 
 
