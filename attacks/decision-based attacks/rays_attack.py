@@ -12,6 +12,11 @@ The original license is placed at the end of this file.
   year={2020}
 }
 
+basic structure for main:
+  1. config args and prior setup
+  2. define functions that implement rays attack and binary search for decision boundary along sgn direction
+  3. define purturbation
+  
 '''
 
 """
