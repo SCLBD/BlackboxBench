@@ -3,9 +3,20 @@
 This file is copied from the following source:
 link: https://github.com/kuangliu/pytorch-cifar/blob/master/models/preact_resnet.py
 
+@inproceedings{he2016identity,
+  title={Identity mappings in deep residual networks},
+  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle={European conference on computer vision},
+  pages={630--645},
+  year={2016},
+  organization={Springer}
+}
+
 The original license is placed at the end of this file.
 
 '''
+
+'''Pre-activation ResNet in PyTorch.'''
 
 import torch
 import torch.nn as nn
