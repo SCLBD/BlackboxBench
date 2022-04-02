@@ -1,4 +1,5 @@
 '''
+
 This file is copied from the following source:
 link: https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter
 
@@ -12,7 +13,6 @@ booktitle={International Conference on Learning Representations},
 year={2020},
 url={https://openreview.net/forum?id=SygW0TEFwH}
 }
-
 
 '''
 
