@@ -16,7 +16,7 @@ url={https://openreview.net/forum?id=SygW0TEFwH}
 
 basic structure for main:
     1. config args and prior setup
-    2. define funtions that insert perturbation using simple attack
+    2. define functions that insert perturbation using simple attack
     3. return results
     
 '''
