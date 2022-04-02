@@ -17,6 +17,10 @@ The update include:
     2. args and config
     3. functions modification
     
+basic structure for main:
+    1. config args, prior setup
+    2. define some functions, including image processinf, noise setting, implementation of local search algorithm, and perturbation.
+    3. return output
 '''
 
 """
