@@ -11,7 +11,9 @@ booktitle={International Conference on Learning Representations},
 year={2020},
 url={https://openreview.net/forum?id=SygW0TEFwH}
 }
+
 The original license is placed at the end of this file.
+
 basic structure for main:
     1. config args and prior setup
     2. define funtion that returns a summary of the attack results
@@ -163,3 +165,24 @@ class DecisionBlackBoxAttack(object):
         # self.total_distance += self.distance(adv,xs_t)
 
         return self.logs
+'''
+    
+MIT License
+Copyright (c) 2019 Abdullah Al-Dujaili
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+'''
