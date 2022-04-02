@@ -49,7 +49,7 @@ python attack_imagenet.py ***.json
 ```
 ---
 ### Requirement
-Please see the [requirement.txt](./requirement.txt). 
+Please see the [requirement.txt](https://github.com/SCLBD/B-box/blob/main/requirements.txt). 
 
 
 ---
