@@ -14,6 +14,11 @@ The original license is placed at the end of this file.
   organization={IEEE}
 }
 
+basic structure for main:
+  1. config args and prior setup
+  2. define functions that implement HSJA algorithm, boundary decision, 
+     gradient estimation, binary search to approach boundary and geometric progression
+  
 '''
 
 """
@@ -212,7 +217,7 @@ class HSJAttack(DecisionBlackBoxAttack):
 
 
     def binary_search_batch(self, original_image, perturbed_images, label_or_target, theta):
-        """ Binary search to approach the boundar. """
+        """ Binary search to approach the boundary. """
 
         # Compute distance between each of perturbed image and original image.
         dists_post_update = np.array([
