@@ -1,4 +1,8 @@
 '''
+
+This file is modified based on the following resource:
+link: https://github.com/thisisalirah/GeoDA
+
 @inproceedings{rahmati2020geoda,
   title={Geoda: a geometric framework for black-box adversarial attacks},
   author={Rahmati, Ali and Moosavi-Dezfooli, Seyed-Mohsen and Frossard, Pascal and Dai, Huaiyu},
@@ -7,7 +11,10 @@
   year={2020}
 }
 
-rewrite from https://github.com/thisisalirah/GeoDA
+The update include:
+  1. args and config
+  2. functions modification
+  
 '''
 
 """
