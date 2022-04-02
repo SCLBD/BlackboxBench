@@ -1,4 +1,9 @@
 '''
+This file is modified based on the following source:
+link: https://github.com/cmhcbb/attackbox/blob/master/attack
+
+The original license is placed at the end of this file.
+
 @article{cheng2019sign,
   title={Sign-opt: A query-efficient hard-label adversarial attack},
   author={Cheng, Minhao and Singh, Simranjit and Chen, Patrick and Chen, Pin-Yu and Liu, Sijia and Hsieh, Cho-Jui},
@@ -6,7 +11,6 @@
   year={2019}
 }
 
-rewrite from   https://github.com/cmhcbb/attackbox
 '''
 
 """
