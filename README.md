@@ -1,19 +1,24 @@
-# B-Box: an adversarial black-box attack toolbox to evaluate the robustness of Deep Learning models in Pytorch.
+# BlackBoxBench: an adversarial black-box attack toolbox to evaluate the robustness of deep Learning models
 
 ![Python 3.6](https://img.shields.io/badge/python-3.6-DodgerBlue.svg?style=plastic)
 ![Pytorch 1.6.0](https://img.shields.io/badge/pytorch-1.6.0-DodgerBlue.svg?style=plastic)
 ![CUDA 10.0](https://img.shields.io/badge/cuda-10.0-DodgerBlue.svg?style=plastic)
-![License CC BY-NC](https://img.shields.io/badge/license-CC_BY--NC-DodgerBlue.svg?style=plastic)
+<!--- ![License CC BY-NC](https://img.shields.io/badge/license-CC_BY--NC-DodgerBlue.svg?style=plastic) -->
 
-🚀🚀🚀 B-Box is a toolbox containing mainstreamed adversarial black-box attack methods implemented based on [PyTorch](https://pytorch.org). You can easily adopt it to evaluate robustness of your ML models or design the better attack methods. Meanwhile, we also provide a benchmark which evaluate their attack performance against several defense methods. Currently, we support:
+BlackBoxBench is a toolbox containing mainstream adversarial black-box attack methods implemented based on [PyTorch](https://pytorch.org). 
+It can be used to evaluate the adversarial robustness of any ML models, or as the baseline to develop more advanced attack and defense methods. 
+Meanwhile, we also provide a benchmark which evaluates their attack performance against several defense methods. Currently, we support:
 
 - Attack methods: 
-	- query-based attack methods: 
+	- Query-based attack methods: 
 		- `7 score-based attacks`: [NES](https://arxiv.org/abs/1804.08598), [ZOSignSGD](https://openreview.net/forum?id=BJe-DsC5Fm), [Bandit-prior](https://arxiv.org/abs/1807.07978), [ECO attack](https://arxiv.org/abs/1905.06635), [SimBA](https://arxiv.org/abs/1905.07121), [SignHunter](https://openreview.net/forum?id=SygW0TEFwH), [Sqaure attack](https://arxiv.org/abs/1912.00049).
 		- `8 decision-based attacks`: [Boundary attack](https://arxiv.org/abs/1712.04248), [OPT attack](https://arxiv.org/abs/1807.04457), [Sign-OPT](https://arxiv.org/abs/1909.10773), [Evoluationary attack](https://arxiv.org/abs/1904.04433), [GeoDA](https://arxiv.org/abs/2003.06468), [HSJA](https://arxiv.org/abs/1904.02144), [Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php), [RayS](https://arxiv.org/abs/2006.12792).
-	- transfer attack methods: `Coming soon!`
+	- Transfer attack methods: `Coming soon!`
 - Datasets: CIFAR-10, ImageNet.
-- Models: Pretrained models on the above two datasets.
+- Models: Several CNN models pretrained on above two datasets.
+
+BlackBoxBench will be continously updated by adding implementations of more attack and defense methods, as well as evaluations on more datasets and models.
+
 ---
 <font size=5><center><b> Table of Contents </b> </center></font>
 
