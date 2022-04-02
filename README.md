@@ -17,7 +17,7 @@ Meanwhile, we also provide a benchmark which evaluates their attack performance 
 - Datasets: CIFAR-10, ImageNet.
 - Models: Several CNN models pretrained on above two datasets.
 
-BlackBoxBench will be continously updated by adding implementations of more attack and defense methods, as well as evaluations on more datasets and models.
+BlackBoxBench will be continously updated by adding implementations of more attack and defense methods, as well as evaluations on more datasets and models. **You are welcome to contribute your backdoor methods to BlackBoxBench.**
 
 ---
 <font size=5><center><b> Table of Contents </b> </center></font>
@@ -32,6 +32,8 @@ BlackBoxBench will be continously updated by adding implementations of more atta
 - [Supported attacks](#supported-attacks)
 - [Supported datasets](#supported-datasets)
 - [Supported testing models](#supported-testing-models)
+- [Citation](#citation)
+- [Copyright](#copyright)
 - [Acknowledgments](#acknowledgments)
 
 ---
@@ -188,14 +190,6 @@ For ResNet-50 and WideResNet-28, we train them by using the code from this [gith
 + **ImageNet**: ResNet-50, Inception-v3, AT-l_inf-ResNet-50 (4/255) [(Salman et al., 2020)](https://github.com/microsoft/robust-models-transfer), FastAT-l_inf-ResNet-50 (4/255) [(Wong et al., 2020)](https://github.com/locuslab/fast_adversarial).
 For ResNet-50 and Inception-v3, we use the provided pretrained model from [torchvision](https://pytorch.org/vision/stable/index.html).
 
-## [Copyright](#copyright)
-
-<a href="#top">[Back to top]</a>
-
-<!-- This repository is licensed by [The Chinese University of Hong Kong, Shenzhen](https://www.cuhk.edu.cn/en) and [Shenzhen Research Institute of Big Data](http://www.sribd.cn/en) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.  -->
-
-This project is built by the Secure Computing Lab of Big Data ([SCLBD](http://scl.sribd.cn/index.html)) at The Chinese University of Hong Kong, Shenzhen and Shenzhen Research Institute of Big Data, directed by Professor [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/home). SCLBD focuses on research of trustworthy AI, including backdoor learning, adversarial examples, federated learning, fairness, etc.
-
 
 ## [Citation](#citation)
 
@@ -204,21 +198,54 @@ This project is built by the Secure Computing Lab of Big Data ([SCLBD](http://sc
 If interested, you can read our recent works about black-box attack and defense methods, and more works about trustworthy AI can be found [here](https://sites.google.com/site/baoyuanwu2015/home).
 
 ```
-@inproceedings{dbd-backdoor-defense-iclr2022,
-title={Backdoor Defense via Decoupling the Training Process},
-author={Huang, Kunzhe and Li, Yiming and Wu, Baoyuan and Qin, Zhan and Ren, Kui},
-booktitle={International Conference on Learning Representations},
-year={2022}
+@inproceedings{cgattack-cvpr2022,
+  title={Boosting Black-Box Attack with Partially Transferred Conditional Adversarial Distribution},
+  author={Feng, Yan and Wu, Baoyuan and Fan, Yanbo and Liu, Li and Li, Zhifeng and Xia, Shutao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2022}
 }
 
-@inproceedings{ssba-backdoor-attack-iccv2021,
-title={Invisible backdoor attack with sample-specific triggers},
-author={Li, Yuezun and Li, Yiming and Wu, Baoyuan and Li, Longkang and He, Ran and Lyu, Siwei},
-booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
-pages={16463--16472},
-year={2021}
+@article{rnd-blackbox-defense-nips2021,
+  title={Random Noise Defense Against Query-Based Black-Box Attacks},
+  author={Qin, Zeyu and Fan, Yanbo and Zha, Hongyuan and Wu, Baoyuan},
+  journal={Advances in Neural Information Processing Systems},
+  volume={34},
+  year={2021}
+}
+
+@inproceedings{liang2021parallel,
+  title={Parallel Rectangle Flip Attack: A Query-Based Black-Box Attack Against Object Detection},
+  author={Liang, Siyuan and Wu, Baoyuan and Fan, Yanbo and Wei, Xingxing and Cao, Xiaochun},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={7697--7707},
+  year={2021}
+}
+
+@inproceedings{chen2020boosting,
+  title={Boosting decision-based black-box adversarial attacks with random sign flip},
+  author={Chen, Weilun and Zhang, Zhaoxiang and Hu, Xiaolin and Wu, Baoyuan},
+  booktitle={European Conference on Computer Vision},
+  pages={276--293},
+  year={2020},
+  organization={Springer}
+}
+
+@inproceedings{evolutionary-blackbox-attack-cvpr2019,
+  title={Efficient decision-based black-box adversarial attacks on face recognition},
+  author={Dong, Yinpeng and Su, Hang and Wu, Baoyuan and Li, Zhifeng and Liu, Wei and Zhang, Tong and Zhu, Jun},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={7714--7722},
+  year={2019}
 }
 ```
 
+## [Copyright](#copyright)
 
+<a href="#top">[Back to top]</a>
+
+<!-- This repository is licensed by [The Chinese University of Hong Kong, Shenzhen](https://www.cuhk.edu.cn/en) and [Shenzhen Research Institute of Big Data](http://www.sribd.cn/en) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.  -->
+
+This project is built by the Secure Computing Lab of Big Data ([SCLBD](http://scl.sribd.cn/index.html)) at The Chinese University of Hong Kong, Shenzhen and Shenzhen Research Institute of Big Data, directed by Professor [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/home). SCLBD focuses on research of trustworthy AI, including backdoor learning, adversarial examples, federated learning, fairness, etc.
+
+If any suggestion or comment, please contact us at <wubaoyuan@cuhk.edu.cn>.
 
