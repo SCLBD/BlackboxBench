@@ -1,4 +1,8 @@
 '''
+
+This file is modified based on the following source:
+link: https://github.com/machanic/MetaSimulator/tree/master/parsimonious_attack
+
 @InProceedings{ma2021simulator,
     author    = {Ma, Chen and Chen, Li and Yong, Jun-Hai},
     title     = {Simulating Unknown Target Models for Query-Efficient Black-Box Attacks},
@@ -8,7 +12,11 @@
     pages     = {11835-11844}
 }
 
-rewrite from  https://github.com/machanic/MetaSimulator/tree/master/parsimonious_attack
+The update include:
+    1. data preprocess
+    2. args and config
+    3. functions modification
+    
 '''
 
 """
