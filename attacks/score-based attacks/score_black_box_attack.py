@@ -3,6 +3,15 @@
 This file is copied from the following source:
 link: https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter/blob/master/src/attacks/blackbox/black_box_attack.py
 
+@inproceedings{
+al-dujaili2020sign,
+title={Sign Bits Are All You Need for Black-Box Attacks},
+author={Abdullah Al-Dujaili and Una-May O'Reilly},
+booktitle={International Conference on Learning Representations},
+year={2020},
+url={https://openreview.net/forum?id=SygW0TEFwH}
+}
+
 The original license is placed at the end of this file.
 
 basic structure for main:
