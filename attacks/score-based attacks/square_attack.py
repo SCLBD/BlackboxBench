@@ -12,6 +12,12 @@ The original license is placed at the end of this file.
   year={2020}
 }
 
+basic structure for main:
+    1. config args and prior setup
+    2. define funtions that find the fraction of pixels changed on every iteration (p), define 
+       pseudo gaussian perturbation and meta gaussian perturbation, and insert perturbation using square attack.
+    3. return results
+    
 '''
 
 """
