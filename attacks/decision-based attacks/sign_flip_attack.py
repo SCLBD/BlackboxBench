@@ -17,6 +17,10 @@ The update include:
     2. args and config
     3. functions modification
 
+basic structure for main:
+    1. config args and prior setup
+    2. define functions that implement sign-flip attack and linf binary search
+    
 '''
 
 
