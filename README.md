@@ -183,6 +183,6 @@ For ResNet-50 and WideResNet-28, we train them by using the code from this [gith
 + **ImageNet**: ResNet-50, Inception-v3, AT-l_inf-ResNet-50 (4/255) [(Salman et al., 2020)](https://github.com/microsoft/robust-models-transfer), FastAT-l_inf-ResNet-50 (4/255) [(Wong et al., 2020)](https://github.com/locuslab/fast_adversarial).
 For ResNet-50 and Inception-v3, we use the provided pretrained model from [torchvision](https://pytorch.org/vision/stable/index.html).
 
-### Acknowledgments
-The part of Our code is adapted from [https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter](https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter).
+
+
 
