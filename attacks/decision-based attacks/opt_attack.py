@@ -16,6 +16,10 @@ The update include:
   1. args and configs
   2. functions modification
   
+basic structure for main:
+  1. config args and prior setup
+  2. define functions that implement OPT attack and binary search
+  
 '''
 
 """
