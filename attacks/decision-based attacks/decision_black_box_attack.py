@@ -1,3 +1,25 @@
+'''
+
+This file is copied from the following source:
+link: https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter/blob/master/src/attacks/blackbox/black_box_attack.py
+
+@inproceedings{
+al-dujaili2020sign,
+title={Sign Bits Are All You Need for Black-Box Attacks},
+author={Abdullah Al-Dujaili and Una-May O'Reilly},
+booktitle={International Conference on Learning Representations},
+year={2020},
+url={https://openreview.net/forum?id=SygW0TEFwH}
+}
+The original license is placed at the end of this file.
+basic structure for main:
+    1. config args and prior setup
+    2. define funtion that returns a summary of the attack results
+    3. set the decision-based attacking
+    4. return the logs
+    
+'''
+
 """
 Implements the base class for decision-based black-box attacks
 """
