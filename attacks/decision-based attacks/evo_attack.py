@@ -1,4 +1,9 @@
 '''
+This file is modified based on the following source:
+link: https://github.com/thu-ml/ares/blob/main/pytorch_ares/pytorch_ares/attack_torch/evolutionary.py
+
+The original license is placed at the end of this file.
+
 @inproceedings{dong2019efficient,
   title={Efficient decision-based black-box adversarial attacks on face recognition},
   author={Dong, Yinpeng and Su, Hang and Wu, Baoyuan and Li, Zhifeng and Liu, Wei and Zhang, Tong and Zhu, Jun},
@@ -7,7 +12,11 @@
   year={2019}
 }
 
-rewrite from https://github.com/thu-ml/ares/blob/main/pytorch_ares/pytorch_ares/attack_torch/evolutionary.py
+The update include:
+  1. args and config
+  2. functions modification
+  3. save process
+  
 '''
 
 """
