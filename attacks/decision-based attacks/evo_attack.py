@@ -18,6 +18,11 @@ The update include:
   2. functions modification
   3. save process
   
+basic structure for main:
+  1. config args and prior setup
+  2. define functions that implement evolutionary attack
+  3. define perturbations
+  
 '''
 
 """
