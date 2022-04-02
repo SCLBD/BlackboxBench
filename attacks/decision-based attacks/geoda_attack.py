@@ -1,6 +1,6 @@
 '''
 
-This file is modified based on the following resource:
+This file is modified based on the following source:
 link: https://github.com/thisisalirah/GeoDA
 
 @inproceedings{rahmati2020geoda,
@@ -14,6 +14,11 @@ link: https://github.com/thisisalirah/GeoDA
 The update include:
   1. args and config
   2. functions modification
+  
+basic structure for main:
+  1. config args and prior setup
+  2. define functions that generate sub-noises and implement GeoDA algorithm
+  3. define perturbations and return results 
   
 '''
 
