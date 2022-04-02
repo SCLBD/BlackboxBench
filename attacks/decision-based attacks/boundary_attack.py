@@ -31,6 +31,12 @@ The update include:
   2. args and config
   3. functions modification
   
+basic structure for main:
+  1. config args and prior setup
+  2. define functions that produce candidates and spherical candidates and implement boundary attack algorithm
+  3. insert perturbation
+  4. return results
+  
 '''
 
 """
