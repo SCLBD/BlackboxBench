@@ -8,6 +8,8 @@ The original license is placed at the end of this file.
 
 '''
 
+'''DenseNet in PyTorch.'''
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
