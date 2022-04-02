@@ -14,6 +14,11 @@ year={2020},
 url={https://openreview.net/forum?id=SygW0TEFwH}
 }
 
+basic structure for main:
+    1. config args and prior setup
+    2. define functions that insert perturbation and return the estimated gradient
+    3. return results
+
 '''
 
 """
