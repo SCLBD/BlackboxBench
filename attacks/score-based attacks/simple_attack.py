@@ -14,11 +14,15 @@ year={2020},
 url={https://openreview.net/forum?id=SygW0TEFwH}
 }
 
+basic structure for main:
+    1. config args and prior setup
+    2. define funtions that insert perturbation using simple attack
+    3. return results
+    
 '''
 
 """
-Implements the simple black-box attack from
-https://github.com/cg563/simple-blackbox-attack/blob/master/simba_single.py
+Implements the simple black-box attack
 """
 from __future__ import absolute_import
 from __future__ import division
