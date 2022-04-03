@@ -24,12 +24,10 @@ BlackBoxBench will be continously updated by adding implementations of more atta
 ---
 <font size=5><center><b> Table of Contents </b> </center></font>
 
-- [Quick Start](#quick-start)
-- [Requirement](#requirement)
+- [Requirements](#requirement)
 - [Usage](#usage)
-  - [Code organization](#code-organization)
   - [Load pretrained models](#load-pretrained-models) 
-  - [Set the hyperparameters of attacks](#set-the-hyperparameters-of-attacks)
+  - [Configurate the hyperparameters of attacks](#set-the-hyperparameters-of-attacks)
   - [Run Attacks](#run-attacks)
 - [Supported attacks](#supported-attacks)
 - [Supported datasets](#supported-datasets)
@@ -40,63 +38,18 @@ BlackBoxBench will be continously updated by adding implementations of more atta
 
 ---
 
-### Quick Start:
+### Requirements:
 
-After modifying the attacks config files in [config-jsons](./config-jsons/) as desired, include config files of the considered attacks in [attack_cifar10.py](./attack_cifar10.py) or [attack_imagenet.py](./attack_imagenet.py) as follows:
+You can run the following demo to configurate necessary environment
 
-```
-python attack_cifar10.py ***.json
-or 
-python attack_imagenet.py ***.json
-```
----
-### Dependence:
-<a href="#top">[Back to top]</a>
 
 ```
-numpy
-scipy
-matplotlib
-dill
-pandas
-torch==1.6.0
-tensorboard==2.5.0
-tensorflow-gpu==1.15.0
-advertorch
+pip install -r requirement.txt
 ```
 ---
 ### Usage:
-#### Code organization
-The code is well-organized. You can use and extend upon it with little efforts. 
 
-B-box is organized as follows:
-```
-B-box/
-  |--attacks/
-  | |--decision-based attacks/ # contain the base attack class file and 8 decision-based attack methods
-  | |--score-based attacks/ # contain the base attack class file and 7 score-based attack methods
-  |--config-jsons/ #  contain json files which set the experiment configuration. You can write json files to configurate your experiment by following our existing format.
-  |--datasets/
-  | |--cifar10.py # Ultilities for importing CIFAR10 dataset.
-  | |--dataset.py # A wrapper for datasets such as MNIST, CIFAR10, ImageNet.
-  | |--imagenet.py #  A wrapper for ImageNet validation set, which is a simple loader with the appropriate transforms.
-  |--models/ # contain different models for attack.
-  |--pics/ # Records of some experiment outputs.
-  |--requirments.txt 
-  |--utils/ 
-  | |--compute.py # implements handy numerical computational functions.
-  | |--misc.py # helper functions
-  | |--model_loader.py # load different model according to configuration file.
-  |--.gitignore
-  |--README.md
-  |--attack_cifar10.py # main python file to run attacks on CIFAR10.
-  |--attack_imagenet.py # main python file to run attacks on ImageNet.
-```
-Users can modify the configuration file (***.json) to run different attack methods on different models with l_inf norm or l_2 norm.
-
-
-
-#### Load pretrained models
+#### 1. Load pretrained models
 Before users run the main file [attack_cifar10.py](./attack_cifar10.py) & [attack_imagenet.py](./attack_imagenet.py), they need to load pretrained model with `.pth` file. The following part is an example of how to load `Wide-Resnet-28` pretrained on `CIFAR10`. Users need to put pretrained model file '`cifar_wrn_28.pth`' into '`pretrained_models/`' and change the file path accordingly in [utils/model_loader.py](./utils/model_loader.py).
 
 ```
@@ -112,9 +65,9 @@ elif model_name == 'wrn28':
 ```
 
 
-#### Set the hyperparameters of attacks.
+#### 2. Configurate the hyperparameters of attacks.
 
-The following part is about how to modify a config-json file as desired. Here is an example config-json file for `Signopt Attack` on `Wide-Resnet-28` (`CIFAR10`dataset).
+Users can modify the configuration file (***.json) to run different attack methods on different models with l_inf norm or l_2 norm. The following part is about how to modify a config-json file as desired. Here is an example config-json file for `Signopt Attack` on `Wide-Resnet-28` (`CIFAR10`dataset).
 ```
 {
 	"_comment1": "===== DATASET CONFIGURATION =====",
@@ -153,10 +106,9 @@ ImageNet: l_inf: 0.05 =  12.75/255, l_2: 5 = 1275/255
 where `l_inf` represents l_infty norm perturbation and `l_2` represents l_2 norm perturbation.
 
 
+#### 3. Run Attacks
 
-#### Run Attacks
-
-After modifying the attacks config files in [config-jsons](./config-jsons) as desired, include config files of the considered attacks in [attack_cifar10.py](./attack_cifar10.py) as follows:
+After modifying the attacks config files in [config-jsons](./config-jsons) as desired, include config files of the considered attacks in [attack_cifar10.py](./attack_cifar10.py) as follows (running attack on cifar-10 as an example):
 
 ```
 python attack_cifar10.py ***.json
