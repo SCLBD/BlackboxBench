@@ -50,7 +50,7 @@ or
 python attack_imagenet.py ***.json
 ```
 ---
-### Dependence
+### Dependence:
 <a href="#top">[Back to top]</a>
 
 ```
