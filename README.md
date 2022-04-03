@@ -17,7 +17,7 @@ Currently, we support:
 - Datasets: CIFAR-10, ImageNet.
 - Models: Several CNN models pretrained on above two datasets.
 
-We also provide a [**public leaderboard**](https://blackboxbench.github.io/index.html) of evaluating above backdoor attack performance against above backdoor defense methods. 
+We also provide a [**public leaderboard**](https://blackboxbench.github.io/index.html) of evaluating above black-box attack performance against several undefended and defended deep models, on above two datasets.
 
 BlackBoxBench will be continously updated by adding implementations of more attack and defense methods, as well as evaluations on more datasets and models. **You are welcome to contribute your backdoor methods to BlackBoxBench.**
 
