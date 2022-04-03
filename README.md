@@ -7,7 +7,7 @@
 
 BlackBoxBench is a toolbox containing mainstream adversarial black-box attack methods implemented based on [PyTorch](https://pytorch.org). 
 It can be used to evaluate the adversarial robustness of any ML models, or as the baseline to develop more advanced attack and defense methods. 
-Meanwhile, we also provide a benchmark which evaluates their attack performance against several defense methods. Currently, we support:
+Currently, we support:
 
 - Attack methods: 
 	- Query-based attack methods: 
@@ -16,6 +16,8 @@ Meanwhile, we also provide a benchmark which evaluates their attack performance 
 	- Transfer attack methods: `Coming soon!`
 - Datasets: CIFAR-10, ImageNet.
 - Models: Several CNN models pretrained on above two datasets.
+
+We also provide a [**public leaderboard**](https://blackboxbench.github.io/index.html) of evaluating above backdoor attack performance against above backdoor defense methods. 
 
 BlackBoxBench will be continously updated by adding implementations of more attack and defense methods, as well as evaluations on more datasets and models. **You are welcome to contribute your backdoor methods to BlackBoxBench.**
 
