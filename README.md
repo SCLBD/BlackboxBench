@@ -50,10 +50,20 @@ or
 python attack_imagenet.py ***.json
 ```
 ---
-### Requirement
-Please see the [requirement.txt](https://github.com/SCLBD/B-box/blob/main/requirements.txt). 
+### Dependence
+<a href="#top">[Back to top]</a>
 
-
+```
+numpy
+scipy
+matplotlib
+dill
+pandas
+torch==1.6.0
+tensorboard==2.5.0
+tensorflow-gpu==1.15.0
+advertorch
+```
 ---
 ### Usage:
 #### Code organization
