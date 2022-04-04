@@ -34,7 +34,7 @@ BlackBoxBench will be continously updated by adding implementations of more atta
 - [Supported testing models](#supported-testing-models)
 - [Citation](#citation)
 - [Copyright](#copyright)
-- [Acknowledgments](#acknowledgments)
+<!-- - [Acknowledgments](#acknowledgments) -->
 
 ---
 
