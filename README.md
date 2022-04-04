@@ -40,7 +40,7 @@ BlackBoxBench will be continously updated by adding implementations of more atta
 
 ### Requirements:
 
-You can run the following demo to configurate necessary environment
+You can run the following script to configurate necessary environment
 
 
 ```
