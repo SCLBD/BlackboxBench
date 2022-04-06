@@ -5,7 +5,7 @@
 ![CUDA 10.0](https://img.shields.io/badge/cuda-10.0-DodgerBlue.svg?style=plastic)
 <!--- ![License CC BY-NC](https://img.shields.io/badge/license-CC_BY--NC-DodgerBlue.svg?style=plastic) -->
 
-BlackBoxBench is a comprehensive benchmark containing mainstream adversarial black-box attack methods implemented based on [PyTorch](https://pytorch.org). 
+BlackboxBench is a comprehensive benchmark containing mainstream adversarial black-box attack methods implemented based on [PyTorch](https://pytorch.org). 
 It can be used to evaluate the adversarial robustness of any ML models, or as the baseline to develop more advanced attack and defense methods. 
 Currently, we support:
 
