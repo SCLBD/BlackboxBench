@@ -154,6 +154,11 @@ For ResNet-50 and WideResNet-28, we train them by using the code from this [gith
 + **ImageNet**: ResNet-50, Inception-v3, AT-l_inf-ResNet-50 (4/255) [(Salman et al., 2020)](https://github.com/microsoft/robust-models-transfer), FastAT-l_inf-ResNet-50 (4/255) [(Wong et al., 2020)](https://github.com/locuslab/fast_adversarial).
 For ResNet-50 and Inception-v3, we use the provided pretrained model from [torchvision](https://pytorch.org/vision/stable/index.html).
 
+### Supported defense methods
+Here, we also provide several defense methods against black-box attacks. 
+
++ **Random Noise Defense (RND) [(Qin et al., 2021)](https://arxiv.org/abs/2104.11470)**: RND is a lightweight and plug and play defense method against query-based attacks. It is realized by adding a random noise to each query at the inference time (one line code in Pytorch: x = x + noise_size * torch.randn like(x)). You can just tune the alpha (noise_size) to conduct RND in [attack_cifar10.py](./attack_cifar10.py) & [attack_imagenet.py](./attack_imagenet.py).
+
 
 ## [Citation](#citation)
 
