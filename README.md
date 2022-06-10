@@ -201,7 +201,7 @@ follows:
       title={BlackboxBench (Python Library)},
       author={Zeyu Qin and Xuanchen Yan and Baoyuan Wu},
       year={2022},
-      url={https://github.com/MadryLab/robustness}
+      url={https://github.com/SCLBD/BlackboxBench}
    }
 
 ### Acknowledgments
