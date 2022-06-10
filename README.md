@@ -27,6 +27,7 @@ B-Box is a toolbox containing mainstreamed adversarial black-box attack methods 
 - [Supported attacks](#supported-attacks)
 - [Supported datasets](#supported-datasets)
 - [Supported testing models](#supported-testing-models)
+- [Supported defense methods](#supported-defense-methods)
 - [Acknowledgments](#acknowledgments)
 
 ---
