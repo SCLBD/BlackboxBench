@@ -19,7 +19,7 @@ Currently, we support:
 
 We also provide a [**public leaderboard**](https://blackboxbench.github.io/index.html) of evaluating above black-box attack performance against several undefended and defended deep models, on above two datasets.
 
-BlackBoxBench will be continously updated by adding implementations of more attack and defense methods, as well as evaluations on more datasets and models. **You are welcome to contribute your backdoor methods to BlackBoxBench.**
+BlackBoxBench will be continously updated by adding implementations of more attack and defense methods, as well as evaluations on more datasets and models. **You are welcome to contribute your black-box attack methods to BlackBoxBench.**
 
 ---
 <font size=5><center><b> Table of Contents </b> </center></font>
@@ -32,6 +32,7 @@ BlackBoxBench will be continously updated by adding implementations of more atta
 - [Supported attacks](#supported-attacks)
 - [Supported datasets](#supported-datasets)
 - [Supported testing models](#supported-testing-models)
+- [Supported defense methods](#supported-defense-methods)
 - [Citation](#citation)
 - [Copyright](#copyright)
 <!-- - [Acknowledgments](#acknowledgments) -->
