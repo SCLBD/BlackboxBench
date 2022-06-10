@@ -195,7 +195,7 @@ Here, we also provide several defense methods against black-box attacks.
 If you use this library in your research, cite it as
 follows:
 
-'''
+```
 
    @misc{blackboxbench,
       title={BlackboxBench (Python Library)},
@@ -203,7 +203,7 @@ follows:
       year={2022},
       url={https://github.com/SCLBD/BlackboxBench}
    }
-'''
+```
 
 
 ### Acknowledgments
