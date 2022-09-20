@@ -162,7 +162,9 @@ Here, we also provide several defense methods against black-box attacks.
 
 ## [Citation](#citation)
 
-If you use this library in your research, cite it as
+<a href="#top">[Back to top]</a>
+
+If you want to use this library in your research, cite it as
 follows:
 
 ```
@@ -175,7 +177,6 @@ follows:
 
 ```
 
-<a href="#top">[Back to top]</a>
 
 If interested, you can read our recent works about black-box attack and defense methods, and more works about trustworthy AI can be found [here](https://sites.google.com/site/baoyuanwu2015/home).
 
