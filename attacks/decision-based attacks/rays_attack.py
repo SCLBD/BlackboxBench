@@ -1,4 +1,10 @@
 '''
+
+This file is copied from the following source:
+link: https://github.com/uclaml/RayS
+
+The original license is placed at the end of this file.
+
 @inproceedings{chen2020rays,
   title={RayS: A Ray Searching Method for Hard-label Adversarial Attack},
   author={Chen, Jinghui and Gu, Quanquan},
@@ -6,7 +12,11 @@
   year={2020}
 }
 
-rewrite from https://github.com/uclaml/RayS
+basic structure for main:
+  1. config args and prior setup
+  2. define functions that implement rays attack and binary search for decision boundary along sgn direction
+  3. define purturbation
+  
 '''
 
 """
@@ -144,3 +154,31 @@ class RaySAttack(DecisionBlackBoxAttack):
             adv, q = self.attack_hard_label(xs_t, ys_t, target=None)
 
         return adv, q
+      
+'''
+ 
+Original License
+ 
+MIT License
+
+Copyright (c) 2020 Jinghui Chen, Quanquan Gu
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+'''

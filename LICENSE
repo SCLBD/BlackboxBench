@@ -1,11 +1,7 @@
-TEMPLATE
-
 The Chinese University of Hong Kong, Shenzhen is pleased to support the open source community by making BlackboxBench (the “Software”) available. Please carefully read the terms and conditions of the Creative Commons Attribution-NonCommercial 4.0 International Public License (https://creativecommons.org/licenses/by-nc/4.0/legalcode, referred to hereinafter as “Public License”) , under which the Software source code is licensed, except for the third-party components or materials listed as follows which are subject to different license. The integration of Software into your own project(s) shall require compliance with the Public License set forth herein. 
 
 Copyright (c) 2022, CUHK(SZ)
 All rights reserved.
-This source code is licensed under the CC BY-NC-4.0 license found in the
-LICENSE file in the root directory of this source tree.
 
 -------------------------------------------------------------------------------------
 Creative Commons Attribution-NonCommercial 4.0 International Public License [identified as CC BY-NC-4.0 in SPDX(https://spdx.org/licenses/)]
@@ -89,6 +85,7 @@ b. To the extent possible, if any provision of this Public License is deemed une
 c. No term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.
 d. Nothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.
  
+
 Other dependencies and licenses:
 Open Source Software Licensed Under the Apache License, Version 2.0: 
 ----------------------------------------------------------------------------------------

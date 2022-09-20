@@ -1,4 +1,10 @@
 '''
+
+This file is modified based on the following source:
+link: https://github.com/bethgelab/foolbox/blob/master/foolbox/attacks/boundary_attack.py
+
+The original license is placed at the end of this file.
+
 @article{rauber2017foolboxnative,
   doi = {10.21105/joss.02607},
   url = {https://doi.org/10.21105/joss.02607},
@@ -20,7 +26,17 @@
   url={http://arxiv.org/abs/1707.04131},
 }
 
-rewrite from https://github.com/bethgelab/foolbox/blob/master/foolbox/attacks/boundary_attack.py
+The update include:
+  1. model setting
+  2. args and config
+  3. functions modification
+  
+basic structure for main:
+  1. config args and prior setup
+  2. define functions that produce candidates and spherical candidates and implement boundary attack algorithm
+  3. insert perturbation
+  4. return results
+  
 '''
 
 """
@@ -341,3 +357,30 @@ class ArrayQueue:
         assert self.tensor is not None
         result = ~np.isnan(self.data).any(axis=0)
         return torch.from_numpy(result)
+'''
+
+Original License
+
+MIT License
+
+Copyright (c) 2020 Jonas Rauber et al.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+'''

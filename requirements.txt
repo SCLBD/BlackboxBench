@@ -1,5 +1,8 @@
 numpy
 scipy
+matplotlib
+dill
+pandas
 torch==1.6.0
 tensorboard==2.5.0
 tensorflow-gpu==1.15.0
