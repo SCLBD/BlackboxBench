@@ -34,8 +34,7 @@ BlackBoxBench will be continously updated by adding implementations of more atta
 - [Supported testing models](#supported-testing-models)
 - [Supported defense methods](#supported-defense-methods)
 - [Citation](#citation)
-- [Copyright](#copyright)
-<!-- - [Acknowledgments](#acknowledgments) -->
+
 
 ---
 
@@ -218,5 +217,5 @@ The source code of this repository is licensed by [The Chinese University of Hon
 
 This project is built by the Secure Computing Lab of Big Data ([SCLBD](http://scl.sribd.cn/index.html)) at The Chinese University of Hong Kong, Shenzhen and Shenzhen Research Institute of Big Data, directed by Professor [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/home). SCLBD focuses on research of trustworthy AI, including backdoor learning, adversarial examples, federated learning, fairness, etc.
 
-If any suggestion or comment, please contact us at <wubaoyuan@cuhk.edu.cn>.
+
 
