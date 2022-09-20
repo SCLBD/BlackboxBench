@@ -157,7 +157,7 @@ For ResNet-50 and Inception-v3, we use the provided pretrained model from [torch
 ### Supported defense methods
 Here, we also provide several defense methods against black-box attacks. 
 
-+ **Random Noise Defense (RND) [(Qin et al., 2021)](https://arxiv.org/abs/2104.11470)**: RND is a lightweight and plug and play defense method against query-based attacks. It is realized by adding a random noise to each query at the inference time (one line code in Pytorch: x = x + noise_size * torch.randn like(x)). You can just tune the sigma (noise_size) to conduct RND in [attack_cifar10.py](./attack_cifar10.py) & [attack_imagenet.py](./attack_imagenet.py).
++ **Random Noise Defense Against Query-Based Black-Box Attacks (RND) [(Qin et al., 2021)](https://arxiv.org/abs/2104.11470)**: RND is a lightweight and plug and play defense method against query-based attacks. It is realized by adding a random noise to each query at the inference time (one line code in Pytorch: x = x + noise_size * torch.randn like(x)). You can just tune the sigma (noise_size) to conduct RND in [attack_cifar10.py](./attack_cifar10.py) & [attack_imagenet.py](./attack_imagenet.py).
 
 
 ## [Citation](#citation)
