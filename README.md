@@ -162,6 +162,19 @@ Here, we also provide several defense methods against black-box attacks.
 
 ## [Citation](#citation)
 
+If you use this library in your research, cite it as
+follows:
+
+```
+   @misc{blackboxbench,
+      title={BlackboxBench (Python Library)},
+      author={Zeyu Qin and Xuanchen Yan and Baoyuan Wu},
+      year={2022},
+      url={https://github.com/SCLBD/BlackboxBench}
+   }
+
+```
+
 <a href="#top">[Back to top]</a>
 
 If interested, you can read our recent works about black-box attack and defense methods, and more works about trustworthy AI can be found [here](https://sites.google.com/site/baoyuanwu2015/home).
