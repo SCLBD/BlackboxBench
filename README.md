@@ -224,7 +224,7 @@ If interested, you can read our recent works about black-box attack and defense 
 
 ## [Contributors](#contributors)
 
-[Zeyu Qin](https://github.com/Alan-Qin), Run Liu, Yi Liu, Xuanchen Yan
+[Zeyu Qin](https://github.com/Alan-Qin), Run Liu, Xuanchen Yan
 
 ## [Copyright](#copyright)
 
