@@ -9,7 +9,7 @@ import torch.nn as nn
 from utils.misc import data_path_join
 # from utils_.utils import RecorderMeter
 # from utils_ import utils
-from models import (resnet_preact, resnet, wrn, vgg, densenet,  )# pyramidnet wrn_adv
+from models import (resnet_preact, resnet, wrn, vgg, densenet)# pyramidnet wrn_adv
 # , wrn_sap, wrn_adv_sap, model_zoo, vgg_rse, pni_model
 # from models.Resnet import resnet152_denoise, resnet101_denoise
 import numpy as np
@@ -176,11 +176,11 @@ def load_torch_models(model_name):
         TRAINED_MODEL_PATH = data_path_join('pretrained_models/resnet/')
         filename = 'cifar_res18.pth'
         pretrained_model = resnet.ResNet18(pretrained=True)
-        # pretrained_model = torch.nn.DataParallel(pretrained_model)
-        # checkpoint = torch.load(os.path.join(TRAINED_MODEL_PATH, filename))
-        # if hasattr(pretrained_model, 'module'):
-        #     pretrained_model = pretrained_model.module
-        # pretrained_model.load_state_dict(checkpoint['net'])
+        pretrained_model = torch.nn.DataParallel(pretrained_model)
+        checkpoint = torch.load(os.path.join(TRAINED_MODEL_PATH, filename))
+        if hasattr(pretrained_model, 'module'):
+            pretrained_model = pretrained_model.module
+        pretrained_model.load_state_dict(checkpoint['net'])
 
 
     elif model_name == 'res50':

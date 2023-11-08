@@ -32,11 +32,11 @@ def create_dir(_dir):
     """Create a directory, skip if it exists"""
     os.makedirs(_dir, exist_ok=True)
 
+
 def get_src_dir():
     """returns the {REPO_PATH}/src/"""
     _dir = os.path.dirname(os.path.abspath(__file__))
-
-    return "/home/lorenzp/DeepFakeDetectors/DIRE/helper_gen/attacks/BlackboxBench" # _dir[:_dir.rfind(DIR) + len(DIR)]
+    return os.path.dirname(_dir) # _dir[:_dir.rfind(DIR) + len(DIR)]
 
 
 def get_config_dir():
