@@ -1,3 +1,7 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
 '''
 
 This file is copied from the following source:
@@ -27,10 +31,6 @@ basic structure for main:
 Script for running black-box attacks
 """
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import json
 import math
 import os
@@ -55,7 +55,7 @@ from attacks.score.sign_attack import SignAttack
 from attacks.score.simple_attack import SimpleAttack
 from attacks.score.square_attack import SquareAttack
 from attacks.score.parsimonious_attack import ParsimoniousAttack
-from attacks.score.dpd_attack import DPDAttack
+# from attacks.score.dpd_attack import DPDAttack
 
 from attacks.decision.sign_opt_attack import SignOPTAttack
 from attacks.decision.hsja_attack import HSJAttack
@@ -158,7 +158,7 @@ if __name__ == '__main__':
 
                 x_batch, y_batch = dset.get_eval_data(bstart, bend)
                 y_batch = torch.LongTensor(y_batch).cuda()
-                x_ori = torch.FloatTensor(x_batch.copy().transpose(0,3,1,2))
+                x_ori = torch.FloatTensor(x_batch.copy().transpose(0,3,1,2)).cuda()
 
                 if target:
                     def get_label(target_type):
@@ -205,6 +205,9 @@ if __name__ == '__main__':
                             return loss.detach()
 
                     def early_stop_crit_fct(xs):
+                        # breakpoint()
+                        # x_ori = x_ori.cpu()
+                        # xs = xs.cpu()
                         if type(xs) is torch.Tensor:
                             x_eval = xs.permute(0,3,1,2)
                         else:

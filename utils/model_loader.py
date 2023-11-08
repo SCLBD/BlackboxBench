@@ -9,7 +9,7 @@ import torch.nn as nn
 from utils.misc import data_path_join
 # from utils_.utils import RecorderMeter
 # from utils_ import utils
-from models import resnet_preact, resnet, pyramidnet, wrn, vgg, densenet, wrn_adv
+from models import (resnet_preact, resnet, wrn, vgg, densenet,  )# pyramidnet wrn_adv
 # , wrn_sap, wrn_adv_sap, model_zoo, vgg_rse, pni_model
 # from models.Resnet import resnet152_denoise, resnet101_denoise
 import numpy as np
@@ -23,11 +23,12 @@ def load_torch_models(model_name):
         device = torch.device('cpu')
 
     if model_name == "pyramidnet":
-        TRAINED_MODEL_PATH = data_path_join('pretrained_models/pyramidnet_basic_110_84/00/')
-        filename = 'model_best_state.pth'
-        with open(os.path.join(TRAINED_MODEL_PATH, 'config.json')) as fr:
-            pretrained_model = pyramidnet.Network(json.load(fr)['model_config'])
-            pretrained_model.load_state_dict(torch.load(os.path.join(TRAINED_MODEL_PATH, filename))['state_dict'])
+        pass
+        # TRAINED_MODEL_PATH = data_path_join('pretrained_models/pyramidnet_basic_110_84/00/')
+        # filename = 'model_best_state.pth'
+        # with open(os.path.join(TRAINED_MODEL_PATH, 'config.json')) as fr:
+        #     pretrained_model = pyramidnet.Network(json.load(fr)['model_config'])
+        #     pretrained_model.load_state_dict(torch.load(os.path.join(TRAINED_MODEL_PATH, filename))['state_dict'])
     elif model_name == 'resnet_adv_4':
         TRAINED_MODEL_PATH = data_path_join('pretrained_models/resnet_adv_4/cifar-10_linf/')
         filename = 'model_best_state.pth'
@@ -174,12 +175,12 @@ def load_torch_models(model_name):
     elif model_name == 'res18':
         TRAINED_MODEL_PATH = data_path_join('pretrained_models/resnet/')
         filename = 'cifar_res18.pth'
-        pretrained_model = resnet.ResNet18()
-        pretrained_model = torch.nn.DataParallel(pretrained_model)
-        checkpoint = torch.load(os.path.join(TRAINED_MODEL_PATH, filename))
+        pretrained_model = resnet.ResNet18(pretrained=True)
+        # pretrained_model = torch.nn.DataParallel(pretrained_model)
+        # checkpoint = torch.load(os.path.join(TRAINED_MODEL_PATH, filename))
         # if hasattr(pretrained_model, 'module'):
         #     pretrained_model = pretrained_model.module
-        pretrained_model.load_state_dict(checkpoint['net'])
+        # pretrained_model.load_state_dict(checkpoint['net'])
 
 
     elif model_name == 'res50':

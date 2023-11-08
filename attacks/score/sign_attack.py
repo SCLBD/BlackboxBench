@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 '''
 
 This file is copied from the following source:
@@ -16,42 +19,32 @@ url={https://openreview.net/forum?id=SygW0TEFwH}
 
 basic structure for main:
     1. config args and prior setup
-    2. define funtions that insert perturbation using ZO-SIGN-SGD attack.
+    2. define functions that insert perturbation and return the estimated gradient
     3. return results
 
 '''
 
 """
-Implements ZO-SIGN-SGD attacks from
-"SignSGD via Zeroth-Order Oracle"
+Implements SignHunter
 """
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import numpy as np
 import torch 
-from torch import Tensor as t
-import pdb
-
 
 from attacks.score.score_black_box_attack import ScoreBlackBoxAttack
-from utils.compute import lp_step
+from utils.compute import lp_step, sign, norm
 
 
-class ZOSignSGDAttack(ScoreBlackBoxAttack):
+class SignAttack(ScoreBlackBoxAttack):
     """
-    ZOSignSGD Attack
+    SignHunter
     """
 
-    def __init__(self, max_loss_queries, epsilon, p, fd_eta, lr, q, lb, ub, batch_size, name):
+    def __init__(self, max_loss_queries, epsilon, p, fd_eta, lb, ub, batch_size, name):
         """
         :param max_loss_queries: maximum number of calls allowed to loss oracle per data pt
         :param epsilon: radius of lp-ball of perturbation
         :param p: specifies lp-norm  of perturbation
         :param fd_eta: forward difference step
-        :param lr: learning rate of NES step
-        :param q: number of noise samples per NES step
         :param lb: data lower bound
         :param ub: data upper bound
         """
@@ -61,62 +54,100 @@ class ZOSignSGDAttack(ScoreBlackBoxAttack):
                          p=p,
                          lb=lb,
                          ub=ub,
-                         batch_size=batch_size,
-                         name = "zosignsgd")
-        self.q = q
+                         batch_size= batch_size,
+                         name="Sign")
+
+
         self.fd_eta = fd_eta
-        self.lr = lr
+        self.best_est_deriv = None
+        self.xo_t = None
+        self.sgn_t = None
+        self.h = 0
+        self.i = 0
 
     def _perturb(self, xs_t, loss_fct):
-        #pdb.set_trace()
         _shape = list(xs_t.shape)
         dim = np.prod(_shape[1:])
-        num_axes = len(_shape[1:])
-        gs_t = torch.zeros_like(xs_t)
-        for _ in range(self.q):
-            # exp_noise = torch.randn_like(xs_t) / (dim ** 0.5)
-            exp_noise = torch.randn_like(xs_t)
-            fxs_t = xs_t + self.fd_eta * exp_noise
-            bxs_t = xs_t
-            est_deriv = (loss_fct(fxs_t) - loss_fct(bxs_t)) / self.fd_eta
-            gs_t += est_deriv.reshape(-1, *[1] * num_axes) * exp_noise
-        # perform the sign step regardless of the lp-ball constraint
-        # this is the main difference in the method.
-        new_xs = lp_step(xs_t, gs_t, self.lr, 'inf')
-        # the number of queries required for forward difference is q (forward sample) + 1 at xs_t
-        return new_xs, (self.q + 1) * torch.ones(_shape[0])
+        # additional queries at the start
+        add_queries = 0
+        if self.is_new_batch:
+            self.xo_t = xs_t.clone()
+            self.h = 0
+            self.i = 0
+        if self.i == 0 and self.h == 0:
+            self.sgn_t = sign(torch.ones(_shape[0], dim))
+            fxs_t = lp_step(self.xo_t, self.sgn_t.view(_shape), self.epsilon, self.p)
+            bxs_t = self.xo_t  
+            est_deriv = (loss_fct(fxs_t) - loss_fct(bxs_t)) / self.epsilon
+            self.best_est_deriv = est_deriv
+            add_queries = 3  # because of bxs_t and the 2 evaluations in the i=0, h=0, case.
+        chunk_len = np.ceil(dim / (2 ** self.h)).astype(int)
+        istart = self.i * chunk_len
+        iend = min(dim, (self.i + 1) * chunk_len)
+        self.sgn_t[:, istart:iend] *= - 1.
+        fxs_t = lp_step(self.xo_t, self.sgn_t.view(_shape), self.epsilon, self.p)
+        bxs_t = self.xo_t
+        est_deriv = (loss_fct(fxs_t) - loss_fct(bxs_t)) / self.epsilon
+        
+        ### sign here
+        self.sgn_t[[i for i, val in enumerate(est_deriv < self.best_est_deriv) if val], istart: iend] *= -1.
+        
+
+        self.best_est_deriv = (est_deriv >= self.best_est_deriv) * est_deriv + (
+                est_deriv < self.best_est_deriv) * self.best_est_deriv
+        # perform the step
+        new_xs = lp_step(self.xo_t, self.sgn_t.view(_shape), self.epsilon, self.p)
+        # update i and h for next iteration
+        self.i += 1
+        if self.i == 2 ** self.h or iend == dim:
+            self.h += 1
+            self.i = 0
+            # if h is exhausted, set xo_t to be xs_t
+            if self.h == np.ceil(np.log2(dim)).astype(int) + 1:
+                self.xo_t = xs_t.clone()
+                self.h = 0
+                print("new change")
+                
+        if self.p == '2':
+            import pdb
+            pdb.set_trace()
+
+        return new_xs, torch.ones(_shape[0]) + add_queries
+
+    def get_gs(self):
+        """
+        return the current estimated of the gradient sign
+        :return:
+        """
+        return self.sgn_t
 
     def _config(self):
         return {
-            'name': self.name,
+            "name": self.name, 
             "p": self.p,
             "epsilon": self.epsilon,
             "lb": self.lb,
             "ub": self.ub,
             "max_extra_queries": "inf" if np.isinf(self.max_extra_queries) else self.max_extra_queries,
             "max_loss_queries": "inf" if np.isinf(self.max_loss_queries) else self.max_loss_queries,
-            "lr": self.lr,
-            "q": self.q,
             "fd_eta": self.fd_eta,
             "attack_name": self.__class__.__name__
         }
- 
+    
 '''
+
+Original License
    
 MIT License
-
 Copyright (c) 2019 Abdullah Al-Dujaili
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

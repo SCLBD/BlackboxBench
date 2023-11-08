@@ -35,7 +35,8 @@ def create_dir(_dir):
 def get_src_dir():
     """returns the {REPO_PATH}/src/"""
     _dir = os.path.dirname(os.path.abspath(__file__))
-    return _dir[:_dir.rfind(DIR) + len(DIR)]
+
+    return "/home/lorenzp/DeepFakeDetectors/DIRE/helper_gen/attacks/BlackboxBench" # _dir[:_dir.rfind(DIR) + len(DIR)]
 
 
 def get_config_dir():

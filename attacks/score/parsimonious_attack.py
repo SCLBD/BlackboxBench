@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 '''
 
 This file is modified based on the following source:
@@ -26,9 +29,7 @@ basic structure for main:
 """
 Implements Parsimonious attack
 """
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+
 
 import numpy as np
 from torch import Tensor as t

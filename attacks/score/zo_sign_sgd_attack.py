@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 '''
 
 This file is copied from the following source:
@@ -16,36 +19,38 @@ url={https://openreview.net/forum?id=SygW0TEFwH}
 
 basic structure for main:
     1. config args and prior setup
-    2. define functions that insert perturbation using simple attack
+    2. define funtions that insert perturbation using ZO-SIGN-SGD attack.
     3. return results
-    
+
 '''
 
 """
-Implements the simple black-box attack
+Implements ZO-SIGN-SGD attacks from
+"SignSGD via Zeroth-Order Oracle"
 """
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import numpy as np
-import torch
+import torch 
+from torch import Tensor as t
+import pdb
+
 
 from attacks.score.score_black_box_attack import ScoreBlackBoxAttack
-from utils.compute import lp_step, sign
+from utils.compute import lp_step
 
 
-class SimpleAttack(ScoreBlackBoxAttack):
+class ZOSignSGDAttack(ScoreBlackBoxAttack):
     """
-    Simple Black-Box Attack
+    ZOSignSGD Attack
     """
 
-    def __init__(self, max_loss_queries, epsilon, p, lb, ub, delta, batch_size, name):
+    def __init__(self, max_loss_queries, epsilon, p, fd_eta, lr, q, lb, ub, batch_size, name):
         """
         :param max_loss_queries: maximum number of calls allowed to loss oracle per data pt
         :param epsilon: radius of lp-ball of perturbation
         :param p: specifies lp-norm  of perturbation
         :param fd_eta: forward difference step
+        :param lr: learning rate of NES step
+        :param q: number of noise samples per NES step
         :param lb: data lower bound
         :param ub: data upper bound
         """
@@ -55,72 +60,48 @@ class SimpleAttack(ScoreBlackBoxAttack):
                          p=p,
                          lb=lb,
                          ub=ub,
-                         batch_size = batch_size,
-                         name = "SimBA")
-                         
-        #self.xo_t = None
-        self.delta = delta
-        self.perm = None
-        self.best_loss = None
-        self.i = 0
+                         batch_size=batch_size,
+                         name = "zosignsgd")
+        self.q = q
+        self.fd_eta = fd_eta
+        self.lr = lr
 
     def _perturb(self, xs_t, loss_fct):
+        #pdb.set_trace()
         _shape = list(xs_t.shape)
         dim = np.prod(_shape[1:])
-        b_sz = _shape[0]
-        add_queries = 0
-        if self.is_new_batch:
-            #self.xo_t = xs_t.clone()
-            self.i = 0
-            self.perm = torch.rand(b_sz, dim).argsort(dim=1)
-        if self.i == 0:
-            #self.sgn_t = sign(torch.ones(_shape[0], dim))
-            #fxs_t = lp_step(self.xo_t, self.sgn_t.view(_shape), self.epsilon, self.p)
-            #bxs_t = self.xo_t
-            loss = loss_fct(xs_t)
-            self.best_loss = loss
-            add_queries = 1
-        diff = torch.zeros(b_sz, dim)
-        # % if iterations are greater than dim
-        idx = self.perm[:, self.i % dim]
-        diff = diff.scatter(1, idx.unsqueeze(1), 1)
-        new_xs = xs_t.clone().contiguous().view(b_sz,-1)
-        # left attempt
-        left_xs = lp_step(xs_t, diff.view_as(xs_t), self.delta, self.p)
-        left_loss = loss_fct(left_xs)
-        replace_flag = torch.tensor((left_loss > self.best_loss).astype(np.float32)).unsqueeze(1)
-        #print(replace_flag.shape)
-        self.best_loss = replace_flag.squeeze(1) * left_loss + (1 - replace_flag.squeeze(1)) * self.best_loss
-        new_xs = replace_flag * left_xs.contiguous().view(b_sz,-1) + (1. - replace_flag) * new_xs
-        # right attempt
-        right_xs = lp_step(xs_t, diff.view_as(xs_t), - self.delta, self.p)
-        right_loss = loss_fct(right_xs)
-        # replace only those that have greater right loss and was not replaced
-        # in the left attempt
-        replace_flag = torch.tensor((right_loss > self.best_loss).astype(np.float32)).unsqueeze(1) * (1 - replace_flag)
-        #print(replace_flag.shape)
-        self.best_loss = replace_flag.squeeze(1) * right_loss + (1 - replace_flag.squeeze(1)) * self.best_loss
-        new_xs = replace_flag * right_xs.contiguous().view(b_sz,-1) + (1 - replace_flag) * new_xs
-        self.i += 1
-        # number of queries: add_queries (if first iteration to init best_loss) + left queries + (right queries if any)
-        num_queries = add_queries + torch.ones(b_sz) + torch.ones(b_sz) * replace_flag.squeeze(1)
-        return new_xs.view_as(xs_t), num_queries
+        num_axes = len(_shape[1:])
+        gs_t = torch.zeros_like(xs_t)
+        for _ in range(self.q):
+            # exp_noise = torch.randn_like(xs_t) / (dim ** 0.5)
+            exp_noise = torch.randn_like(xs_t)
+            fxs_t = xs_t + self.fd_eta * exp_noise
+            bxs_t = xs_t
+            est_deriv = (loss_fct(fxs_t) - loss_fct(bxs_t)) / self.fd_eta
+            gs_t += est_deriv.reshape(-1, *[1] * num_axes) * exp_noise
+        # perform the sign step regardless of the lp-ball constraint
+        # this is the main difference in the method.
+        new_xs = lp_step(xs_t, gs_t, self.lr, 'inf')
+        # the number of queries required for forward difference is q (forward sample) + 1 at xs_t
+        return new_xs, (self.q + 1) * torch.ones(_shape[0])
 
     def _config(self):
         return {
-            "name": self.name, 
+            'name': self.name,
             "p": self.p,
             "epsilon": self.epsilon,
-            "delta": self.delta,
             "lb": self.lb,
             "ub": self.ub,
             "max_extra_queries": "inf" if np.isinf(self.max_extra_queries) else self.max_extra_queries,
             "max_loss_queries": "inf" if np.isinf(self.max_loss_queries) else self.max_loss_queries,
+            "lr": self.lr,
+            "q": self.q,
+            "fd_eta": self.fd_eta,
             "attack_name": self.__class__.__name__
         }
-
+ 
 '''
-    
+   
 MIT License
 
 Copyright (c) 2019 Abdullah Al-Dujaili

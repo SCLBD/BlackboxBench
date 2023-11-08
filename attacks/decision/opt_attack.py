@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 '''
 
 This file is modified based on the following source:
@@ -25,10 +28,6 @@ basic structure for main:
 """
 Implements Opt Attack
 """
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import numpy as np
 import torch
 import time
