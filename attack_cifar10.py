@@ -1,3 +1,7 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
 '''
 This file is copied from the following source:
 link: https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter/blob/master/src/attacks/blackbox/run.attack.py
@@ -25,11 +29,6 @@ basic structure for main:
 """
 Script for running black-box attacks
 """
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import json
 import math
 import os
@@ -56,7 +55,7 @@ from attacks.score.sign_attack import SignAttack
 from attacks.score.simple_attack import SimpleAttack
 from attacks.score.square_attack import SquareAttack
 from attacks.score.parsimonious_attack import ParsimoniousAttack
-from attacks.score.dpd_attack import DPDAttack
+# from attacks.score.dpd_attack import DPDAttack
 
 from attacks.decision.sign_opt_attack import SignOPTAttack
 from attacks.decision.hsja_attack import HSJAttack
@@ -83,7 +82,8 @@ if __name__ == '__main__':
         
 
         config_file = config_path_join(_cf)
-        tf.reset_default_graph()
+        tf.compat.v1.reset_default_graph()
+        # tf.reset_default_graph()
 
         with open(config_file) as config_file:
             config = json.load(config_file)
