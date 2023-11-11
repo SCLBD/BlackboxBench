@@ -235,7 +235,8 @@ if __name__ == '__main__':
                         #---------------------#
                         x_eval = x_eval + sigma * torch.randn_like(x_eval)
                         x_eval = torch.clamp(x_eval, 0, 1)
-                        _, y_logit = model(x_eval.cuda())
+                        # _, y_logit = model(x_eval.cuda())
+                        y_logit = model(x_eval.cuda())
                         loss = criterion(y_logit, y_batch, target)
                         if es:
                             y_logit = y_logit.detach()
@@ -260,7 +261,8 @@ if __name__ == '__main__':
                         #---------------------#
                         x_eval = x_eval + sigma * torch.randn_like(x_eval)
                         x_eval = torch.clamp(x_eval, 0, 1)
-                        _, y_logit = model(x_eval.cuda())
+                        # _, y_logit = model(x_eval.cuda())
+                        y_logit = model(x_eval.cuda())
                         y_logit = y_logit.detach()
                         correct = torch.argmax(y_logit, axis=1) == y_batch
                         # expect_num = 10
