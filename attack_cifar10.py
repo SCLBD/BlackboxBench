@@ -77,10 +77,7 @@ if __name__ == '__main__':
     res = {}
     cfs = [config]
 
-
     for _cf in cfs:
-        
-
         config_file = config_path_join(_cf)
         tf.compat.v1.reset_default_graph()
         # tf.reset_default_graph()
@@ -141,7 +138,6 @@ if __name__ == '__main__':
         # criterion = torch.nn.CrossEntropyLoss(reduce=False)
         # criterion = xent_loss
         criterion = cw_loss
-
 
         attacker = eval(config['attack_name'])(
             **config['attack_config'],

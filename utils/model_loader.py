@@ -14,6 +14,7 @@ from models import (resnet_preact, resnet, wrn, vgg, densenet)# pyramidnet wrn_a
 # from models.Resnet import resnet152_denoise, resnet101_denoise
 import numpy as np
 from torchvision import models, datasets
+import timm
 
 def load_torch_models(model_name):
 
@@ -251,6 +252,22 @@ def load_torch_models(model_name):
             state_tmp.update(checkpoint)
 
         pretrained_model.load_state_dict(state_tmp)
+
+    elif model_name == 'timm_res18':
+        pretrained_model = timm.create_model("resnet18", num_classes=10, pretrained=False)
+
+        # override model
+        pretrained_model.conv1 = nn.Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        pretrained_model.maxpool = nn.Identity()  # type: ignore
+        # model.fc = nn.Linear(512,  10)
+
+        pretrained_model.load_state_dict(
+                    torch.hub.load_state_dict_from_url(
+                            "https://huggingface.co/edadaltocg/resnet18_cifar10/resolve/main/pytorch_model.bin",
+                            map_location="cpu", 
+                            file_name="resnet18_cifar10.pth",
+                    )
+        )
 
 
 
