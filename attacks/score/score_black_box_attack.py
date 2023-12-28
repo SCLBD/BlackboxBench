@@ -1,5 +1,8 @@
-'''
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 
+'''
 This file is copied from the following source:
 link: https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter/blob/master/src/attacks/blackbox/black_box_attack.py
 
@@ -10,15 +13,11 @@ basic structure for main:
     2. define funtion that returns a summary of the attack results
     3. set the score-based attacking
     4. return the logs
-    
 '''
 
 """
 Implements the base class for black-box attacks
 """
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 
 import numpy as np
 import torch 

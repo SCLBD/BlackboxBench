@@ -24,7 +24,7 @@ IMAGENET_SL = 299
 
 
 class ImagenetValidData():
-    def __init__(self, data_dir="/storage/imagenet/tf_val_set"):
+    def __init__(self, data_dir="/home/DATA/ITWM/lorenzp/ImageNet/val"):
         imgnet_transform = transforms.Compose([
             transforms.Resize(IMAGENET_SL),
             transforms.CenterCrop(IMAGENET_SL),

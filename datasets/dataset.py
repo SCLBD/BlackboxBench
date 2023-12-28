@@ -45,7 +45,7 @@ class Dataset(object):
         # config = config['dset_config']
 
         if self.name == 'cifar10':
-            data_path = data_path_join('cifar10_data')
+            data_path = data_path_join('/home/DATA/ITWM/cifar10')
             self.data = cifar10_input.CIFAR10Data(data_path)
         elif self.name == 'cifar10aug':
             data_path = data_path_join('cifar10_data')

@@ -1,3 +1,7 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
 '''
 This file is copied from the following source:
 link: https://github.com/ash-aldujaili/blackbox-adv-examples-signhunter/blob/master/src/attacks/blackbox/run.attack.py
@@ -25,11 +29,6 @@ basic structure for main:
 """
 Script for running black-box attacks
 """
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import json
 import math
 import os
@@ -56,7 +55,7 @@ from attacks.score.sign_attack import SignAttack
 from attacks.score.simple_attack import SimpleAttack
 from attacks.score.square_attack import SquareAttack
 from attacks.score.parsimonious_attack import ParsimoniousAttack
-from attacks.score.dpd_attack import DPDAttack
+# from attacks.score.dpd_attack import DPDAttack
 
 from attacks.decision.sign_opt_attack import SignOPTAttack
 from attacks.decision.hsja_attack import HSJAttack
@@ -78,12 +77,10 @@ if __name__ == '__main__':
     res = {}
     cfs = [config]
 
-
     for _cf in cfs:
-        
-
         config_file = config_path_join(_cf)
-        tf.reset_default_graph()
+        tf.compat.v1.reset_default_graph()
+        # tf.reset_default_graph()
 
         with open(config_file) as config_file:
             config = json.load(config_file)
@@ -141,7 +138,6 @@ if __name__ == '__main__':
         # criterion = torch.nn.CrossEntropyLoss(reduce=False)
         # criterion = xent_loss
         criterion = cw_loss
-
 
         attacker = eval(config['attack_name'])(
             **config['attack_config'],
@@ -239,7 +235,8 @@ if __name__ == '__main__':
                         #---------------------#
                         x_eval = x_eval + sigma * torch.randn_like(x_eval)
                         x_eval = torch.clamp(x_eval, 0, 1)
-                        _, y_logit = model(x_eval.cuda())
+                        # _, y_logit = model(x_eval.cuda())
+                        y_logit = model(x_eval.cuda())
                         loss = criterion(y_logit, y_batch, target)
                         if es:
                             y_logit = y_logit.detach()
@@ -264,7 +261,8 @@ if __name__ == '__main__':
                         #---------------------#
                         x_eval = x_eval + sigma * torch.randn_like(x_eval)
                         x_eval = torch.clamp(x_eval, 0, 1)
-                        _, y_logit = model(x_eval.cuda())
+                        # _, y_logit = model(x_eval.cuda())
+                        y_logit = model(x_eval.cuda())
                         y_logit = y_logit.detach()
                         correct = torch.argmax(y_logit, axis=1) == y_batch
                         # expect_num = 10

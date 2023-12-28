@@ -1,8 +1,8 @@
 # BlackboxBench: a comprehensive benchmark of adversarial black-box attack methods
 
-![Python 3.6](https://img.shields.io/badge/python-3.6-DodgerBlue.svg?style=plastic)
-![Pytorch 1.6.0](https://img.shields.io/badge/pytorch-1.6.0-DodgerBlue.svg?style=plastic)
-![CUDA 10.0](https://img.shields.io/badge/cuda-10.0-DodgerBlue.svg?style=plastic)
+![Python 3.8](https://img.shields.io/badge/python-3.8-DodgerBlue.svg?style=plastic)
+![Pytorch 2.0.1](https://img.shields.io/badge/pytorch-2.0.1-DodgerBlue.svg?style=plastic)
+![CUDA 11.8](https://img.shields.io/badge/cuda-11.8-DodgerBlue.svg?style=plastic)
 <!--- ![License CC BY-NC](https://img.shields.io/badge/license-CC_BY--NC-DodgerBlue.svg?style=plastic) -->
 
 BlackboxBench is a comprehensive benchmark containing mainstream adversarial black-box attack methods implemented based on [PyTorch](https://pytorch.org). 
