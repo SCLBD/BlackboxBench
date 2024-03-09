@@ -1,0 +1,8 @@
+advertorch==0.2.3
+numpy==1.23.5
+pandas==2.0.3
+scipy==1.11.3
+tensorflow==2.12.0
+timm==0.9.10
+torch==2.0.1
+torchvision==0.15.2a0

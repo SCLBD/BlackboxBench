@@ -1,0 +1,14 @@
+{
+  "shuffle": true,
+  "norm_type": "inf",
+  "n_ensemble": 1,
+  "targeted": false,
+  "decay_factor": 1,
+  "n_var_sample": 5,
+
+  "input_transformation": "",
+  "loss_function": "cross_entropy",
+  "grad_calculation": "general",
+  "backpropagation": "nonlinear",
+  "update_dir_calculation": "var_tuning|momentum"
+}

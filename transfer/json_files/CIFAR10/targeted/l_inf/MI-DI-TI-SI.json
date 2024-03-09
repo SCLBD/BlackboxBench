@@ -1,0 +1,12 @@
+{
+  "shuffle": true,
+  "norm_type": "inf",
+  "n_ensemble": 1,
+  "decay_factor": 1,
+
+  "input_transformation": "SI(n_copies=3, scale=1.5)|DI(in_size=32, out_size=40)|TI(kerlen=3)",
+  "loss_function": "max_logit",
+  "grad_calculation": "general",
+  "backpropagation": "nonlinear",
+  "update_dir_calculation": "momentum"
+}
