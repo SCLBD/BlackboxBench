@@ -1,122 +1,105 @@
-# BlackboxBench: a comprehensive benchmark of adversarial black-box attack methods
+<img src="transfer/plt/plot/logo.png" style="height: 60px;" align="right">
 
-![Python 3.8](https://img.shields.io/badge/python-3.8-DodgerBlue.svg?style=plastic)
-![Pytorch 2.0.1](https://img.shields.io/badge/pytorch-2.0.1-DodgerBlue.svg?style=plastic)
-![CUDA 11.8](https://img.shields.io/badge/cuda-11.8-DodgerBlue.svg?style=plastic)
-<!--- ![License CC BY-NC](https://img.shields.io/badge/license-CC_BY--NC-DodgerBlue.svg?style=plastic) -->
+# BlackboxBench: A Comprehensive Benchmark of Black-box Adversarial Attacks
 
-BlackboxBench is a comprehensive benchmark containing mainstream adversarial black-box attack methods implemented based on [PyTorch](https://pytorch.org). 
-It can be used to evaluate the adversarial robustness of any ML models, or as the baseline to develop more advanced attack and defense methods. 
-Currently, we support:
+<p align="center">
+<img src="https://img.shields.io/badge/benchmark-lightseagreen" style="height: 20px;"> <img src="https://img.shields.io/badge/contributions-welcome-lemonchiffon.svg" style="height: 20px;">
+</p>
 
-- Attack methods: 
-	- Query-based attack methods: 
-		- `7 score-based attacks`: [NES](https://arxiv.org/abs/1804.08598), [ZOSignSGD](https://openreview.net/forum?id=BJe-DsC5Fm), [Bandit-prior](https://arxiv.org/abs/1807.07978), [ECO attack](https://arxiv.org/abs/1905.06635), [SimBA](https://arxiv.org/abs/1905.07121), [SignHunter](https://openreview.net/forum?id=SygW0TEFwH), [Sqaure attack](https://arxiv.org/abs/1912.00049).
-		- `8 decision-based attacks`: [Boundary attack](https://arxiv.org/abs/1712.04248), [OPT attack](https://arxiv.org/abs/1807.04457), [Sign-OPT](https://arxiv.org/abs/1909.10773), [Evoluationary attack](https://arxiv.org/abs/1904.04433), [GeoDA](https://arxiv.org/abs/2003.06468), [HSJA](https://arxiv.org/abs/1904.02144), [Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php), [RayS](https://arxiv.org/abs/2006.12792).
-	- Transfer attack methods: `Coming soon!`
-- Datasets: CIFAR-10, ImageNet.
-- Models: Several CNN models pretrained on above two datasets.
+<p align="center">
+<a href="https://arxiv.org/abs/2312.16979"> Paper </a >•<a href="https://blackboxbench.github.io/index.html"> Leaderboard </a >
+</p >
 
-We also provide a [**public leaderboard**](https://blackboxbench.github.io/index.html) of evaluating above black-box attack performance against several undefended and defended deep models, on above two datasets.
+**BlackboxBench** is a comprehensive benchmark containing mainstream adversarial <u>**black-box attack methods**</u> implemented based on [PyTorch](https://pytorch.org/). It can be used to evaluate the adversarial robustness of any ML models, or as the baseline to develop more advanced attack and defense methods.
 
-BlackBoxBench will be continously updated by adding implementations of more attack and defense methods, as well as evaluations on more datasets and models. **You are welcome to contribute your black-box attack methods to BlackBoxBench.**
+
+✨ BlackBoxBench will be continously updated by adding more attacks. ✨
+
+✨ **You are welcome to contribute your black-box attack methods to BlackBoxBench!!**  See [how to contribute](#how-to-contribute)✨
+
 
 ---
-<font size=5><center><b> Table of Contents </b> </center></font>
+<font size=5><center><b> Contents </b> </center></font>
 
-- [Requirements](#requirement)
-- [Usage](#usage)
-  - [Load pretrained models](#load-pretrained-models) 
-  - [Configurate the hyperparameters of attacks](#set-the-hyperparameters-of-attacks)
-  - [Run Attacks](#run-attacks)
-- [Supported attacks](#supported-attacks)
-- [Supported datasets](#supported-datasets)
-- [Supported testing models](#supported-testing-models)
-- [Supported defense methods](#supported-defense-methods)
+- [Transfer-based attacks](#transfer-based-attacks)
+    - [Quick start](#transfer-quick-start)
+    - [Supported attacks](#transfer-supported-attacks)
+    - [Supported datasets](#transfer-supported-datasets)
+    - [Supported models](#transfer-supported-models)
+- [Query-based attacks](#query-based-attacks)
+   - [Quick start](#query-quick-start)
+   - [Supported attacks](#query-supported-attacks)
+   - [Supported datasets](#query-supported-dataset)
+   - [Supported models](#query-supported-models)
+- [Analysis Tools](#analysis-tools)
+- [How to contribute](#how-to-contribute)
 - [Citation](#citation)
+- [Copyright](#copyright)
+---
+
+## <span id="transfer-based-attacks">Transfer-based attacks</span>
+
+### <span id="transfer-quick-start">💡Quick start</span>
+
+For `Requirements` and `Quick start` of transfer-based black-box adversarial attacks in BlackboxBench, please refer to the README [here](transfer/README.md). We also provide some model checkpoints for  users' convenience.
+
+### <span id="transfer-supported-attacks">💡Supported attacks</span>
+
+|                 |                         Config file                          | Paper                                                        |
+| --------------- | :----------------------------------------------------------: | ------------------------------------------------------------ |
+| I-FGSM          | [I-FGSM.json](transfer/config/NIPS2017/untargeted/l_inf/I-FGSM.json) | [Adversarial examples in the physical world](https://openreview.net/pdf?id=S1OufnIlx) ICLR 2017 |
+| PGD             | [random_start.json](transfer/config/NIPS2017/untargeted/l_inf/random_start.json) | [Towards deep learning models resistant to adversarial attacks](https://openreview.net/pdf?id=rJzIBfZAb) ICLR 2018 |
+| TI-FGSM         | [TI.json](transfer/config/NIPS2017/untargeted/l_inf/TI.json) | [Evading defenses to transferable adversarial examples by translation-invariant attacks](https://openaccess.thecvf.com/content_CVPR_2019/papers/Dong_Evading_Defenses_to_Transferable_Adversarial_Examples_by_Translation-Invariant_Attacks_CVPR_2019_paper.pdf) CVPR 2019 |
+| SI-FGSM         | [SI.json](transfer/config/NIPS2017/untargeted/l_inf/SI.json) | [Nesterov accelerated gradient and scale invariance for adversarial attacks ](https://openreview.net/pdf?id=SJlHwkBYDH) ICLR 2020 |
+| Admix           | [admix.json](transfer/config/NIPS2017/untargeted/l_inf/admix.json) | [Admix: Enhancing the transferability of adversarial attacks](https://openaccess.thecvf.com/content/ICCV2021/papers/Wang_Admix_Enhancing_the_Transferability_of_Adversarial_Attacks_ICCV_2021_paper.pdf) ICCV 2021 |
+| DI2-FGSM        | [DI2-FGSM.json](transfer/config/NIPS2017/untargeted/l_inf/DI2-FGSM.json) | [Improving transferability of adversarial examples with input diversity](https://openaccess.thecvf.com/content_CVPR_2019/papers/Xie_Improving_Transferability_of_Adversarial_Examples_With_Input_Diversity_CVPR_2019_paper.pdf) CVPR 2019 |
+| MI-FGSM         | [MI-FGSM.json](transfer/config/NIPS2017/untargeted/l_inf/MI-FGSM.json) | [Boosting adversarial attacks with momentum](https://openaccess.thecvf.com/content_cvpr_2018/papers/Dong_Boosting_Adversarial_Attacks_CVPR_2018_paper.pdf) CVPR 2018 |
+| NI-FGSM         | [NI.json](transfer/config/NIPS2017/untargeted/l_inf/NI.json) | [Nesterov accelerated gradient and scale invariance for adversarial attacks](https://openreview.net/pdf?id=SJlHwkBYDH) ICLR 2020 |
+| PI-FGSM         | [PI.json](transfer/config/NIPS2017/untargeted/l_inf/PI.json) | [Boosting adversarial transferability through enhanced momentum](https://www.bmvc2021-virtualconference.com/assets/papers/0646.pdf) BMVC 2021 |
+| VT              | [VT.json](transfer/config/NIPS2017/untargeted/l_inf/VT.json) | [Enhancing the transferability of adversarial attacks through variance tuning](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_Enhancing_the_Transferability_of_Adversarial_Attacks_Through_Variance_Tuning_CVPR_2021_paper.pdf) CVPR 2021 |
+| RAP             | [RAP.json](transfer/config/NIPS2017/untargeted/l_inf/RAP.json) | [Boosting the transferability of adversarial attacks with reverse adversarial perturbation](https://openreview.net/pdf?id=i7FNvHnPvPc) NIPS 2022 |
+| LinBP           | [LinBP.json](transfer/config/NIPS2017/untargeted/l_inf/LinBP.json) | [Backpropagating linearly improves transferability of adversarial examples](https://proceedings.neurips.cc/paper/2020/file/00e26af6ac3b1c1c49d7c3d79c60d000-Supplemental.pdf) NIPS 2020 |
+| SGM             | [SGM.json](transfer/config/NIPS2017/untargeted/l_inf/SGM.json) | [Skip connections matter: On the transferability of adversarial examples generated with resnets](https://openreview.net/pdf?id=BJlRs34Fvr) ICLR 2020 |
+| ILA             | [ILA.json](transfer/config/NIPS2017/untargeted/l_inf/ILA.json) | [Enhancing adversarial example transferability with an intermediate level attack](https://openaccess.thecvf.com/content_ICCV_2019/papers/Huang_Enhancing_Adversarial_Example_Transferability_With_an_Intermediate_Level_Attack_ICCV_2019_paper.pdf) ICCV 2019 |
+| FIA             | [FIA.json](transfer/config/NIPS2017/untargeted/l_inf/FIA.json) | [Feature importance-aware transferable adversarial attacks](https://openaccess.thecvf.com/content/ICCV2021/supplemental/Wang_Feature_Importance-Aware_Transferable_ICCV_2021_supplemental.pdf) ICCV 2021 |
+| NAA             | [NAA.json](transfer/config/NIPS2017/untargeted/l_inf/NAA.json) | [Improving adversarial transferability via neuron attribution-based attacks](https://openaccess.thecvf.com/content/CVPR2022/papers/Zhang_Improving_Adversarial_Transferability_via_Neuron_Attribution-Based_Attacks_CVPR_2022_paper.pdf) CVPR 2022 |
+| RD              | [RD.json](transfer/config/NIPS2017/untargeted/l_inf/RD.json) | [Lgv: Boosting adversarial example transferability from large geometric vicinity](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136640594.pdf) ECCV 2022 |
+| GhostNet        | [GhostNet.json](transfer/config/NIPS2017/untargeted/l_inf/GhostNet.json) | [Learning transferable adversarial examples via ghost networks](https://arxiv.org/pdf/1812.03413.pdf) AAAI 2020 |
+| DRA             | [DRA.json](transfer/config/NIPS2017/untargeted/l_inf/DRA.json) | [Toward understanding and boosting adversarial transferability from a distribution perspective](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9917370) TIPS 2022 |
+| IAA             | [IAA.json](transfer/config/NIPS2017/untargeted/l_inf/IAA.json) | [Rethinking adversarial transferability from a data distribution perspective](https://openreview.net/pdf?id=gVRhIEajG1k) ICLR 2022 |
+| LGV             | [LGV.json](\transfer/config/NIPS2017/untargeted/l_inf/LGV.json) | [Lgv: Boosting adversarial example transferability from large geometric vicinity](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136640594.pdf) ECCV 2022 |
+| SWA             | [SWA.json](transfer/config/NIPS2017/untargeted/l_inf/SWA.json) | [Making substitute models more bayesian can enhance transferability of adversarial examples](https://openreview.net/pdf?id=bjPPypbLre) ICLR 2023 |
+| Bayesian attack | [Bayesian_attack.json](transfer/config/NIPS2017/untargeted/l_inf/Bayesian_attack.json) | [Making substitute models more bayesian can enhance transferability of adversarial examples](https://openreview.net/pdf?id=bjPPypbLre) ICLR 2023 |
+| MI-DI           | [MI-DI.json](transfer/config/NIPS2017/untargeted/l_inf/MI-DI.json) | Composite attack (MI-FGSM + DI-FGSM)                         |
+| MI-DI-TI        | [MI-DI-TI.json](transfer/config/NIPS2017/untargeted/l_inf/MI-DI-TI.json) | Composite attack (MI-FGSM + DI-FGSM + TI-FGSM)               |
+| MI-DI-TI-SI     | [MI-DI-TI-SI.json](transfer/config/NIPS2017/untargeted/l_inf/MI-DI-TI-SI.json) | Composite attack (MI-FGSM + DI-FGSM + TI-FGSM + SI-FGSM)     |
+| VMI             | [VMI.json](transfer/config/NIPS2017/untargeted/l_inf/VMI.json) | Composite attack (MI-FGSM + VT)                              |
+| VNI             | [VNI.json](transfer/config/NIPS2017/untargeted/l_inf/VNI.json) | Composite attack (NI-FGSM + VT)                              |
+| SI-RAP          | [SI-RAP.json](transfer/config/NIPS2017/untargeted/l_inf/SI-RAP.json) | Composite attack (SI-FGSM + RAP )                            |
+| LGV-GhostNet    | [LGV-GhostNet.json](transfer/config/NIPS2017/untargeted/l_inf/LGV-GhostNet.json) | Composite attack (LGV + GhostNet )                           |
+
+### <span id="transfer-supported-datasets">💡Supported datasets</span>
+
+[CIFAR-10](https://cuhko365-my.sharepoint.com/:f:/g/personal/223040254_link_cuhk_edu_cn/EqWvrUrF82tEvHABSXaQ9aIBZACnOiJGG8Mu3UuChAEM0g?e=D3fOlk), [NIPS2017](https://cuhko365-my.sharepoint.com/:f:/g/personal/223040254_link_cuhk_edu_cn/Ev0mhoQdaftGgDZLQg_2Z_UB6CKUE8DyIc7oEbKYPmukow?e=bbhnlQ). Please first download these two datasets into `transfer/data/dataset`. 
+
+### <span id="transfer-supported-models">💡Supported models</span>
+
+BlackboxBench evaluates contained transfer-based attack methods on the below models 👇 (models in blue are treated as surrogate models). But users can attack any model trained on CIFAR-10 and ImageNet by adding it into BlackboxBench, following the step 1️⃣ in `Quick start`.
+
+![transfer_supported_models](transfer/plt/plot/transfer_supported_models.png)
+
 
 
 ---
+## <span id="query-based-attacks">Query-based attacks</span>
 
-### Requirements:
+### <span id="query-quick-start">💡Quick start</span>
 
-You can run the following script to configurate necessary environment
+For `Requirements` and `Quick start` of query-based black-box adversarial attacks in BlackboxBench, please refer to the README [here](query/README.md). 
 
+### <span id="query-supported-attacks">💡Supported attacks</span>
 
-```
-pip install -r requirement.txt
-```
----
-### Usage:
-
-#### 1. Load pretrained models
-Before users run the main file [attack_cifar10.py](./attack_cifar10.py) & [attack_imagenet.py](./attack_imagenet.py), they need to load pretrained model with `.pth` file. The following part is an example of how to load `Wide-Resnet-28` pretrained on `CIFAR10`. Users need to put pretrained model file '`cifar_wrn_28.pth`' into '`pretrained_models/`' and change the file path accordingly in [utils/model_loader.py](./utils/model_loader.py).
-
-```
-elif model_name == 'wrn28':
-	TRAINED_MODEL_PATH = data_path_join('pretrained_models/wrn_adv/')
-	filename = 'cifar_wrn_28.pth'
-	pretrained_model = wrn.WideNet()
-	pretrained_model = torch.nn.DataParallel(pretrained_model)
-	checkpoint = torch.load(os.path.join(TRAINED_MODEL_PATH, filename))
-	# if hasattr(pretrained_model, 'module'):
-	#     pretrained_model = pretrained_model.module
-	pretrained_model.load_state_dict(checkpoint['net'])
-```
-
-
-#### 2. Configurate the hyperparameters of attacks.
-
-Users can modify the configuration file (***.json) to run different attack methods on different models with l_inf norm or l_2 norm. The following part is about how to modify a config-json file as desired. Here is an example config-json file for `Signopt Attack` on `Wide-Resnet-28` (`CIFAR10`dataset).
-```
-{
-	"_comment1": "===== DATASET CONFIGURATION =====",
-	"dset_name": "cifar10", #Users can change the dataset here.
-	"dset_config": {},
-	"_comment2": "===== EVAL CONFIGURATION =====",
-	"num_eval_examples": 10000,  
-	"_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
-	"attack_name": "SignOPTAttack", #We choose Signopt attack method.
-	"attack_config": {
-	"batch_size": 1,
-	"epsilon": 255,
-	"p": "2", #set the perturbation norm to be l-2 norm, while "inf" represents l-infty norm.
-	"alpha": 0.2,
-	"beta": 0.001,
-	"svm": false,
-	"momentum": 0,
-	"max_queries": 10000, #We use unified maximum queries number to be 10000. 
-	"k": 200,
-	"sigma": 0
-	  },
-	"device": "gpu",
-	"modeln": "wrn28", #the name should be in accordance with the one in model_loader.py
-	"target": false, #Users can choose to run targeted attack(true) or untargeted attack(false).
-	"target_type": "median",
-	"seed":123
-	}
-  
-```
-We set the maxium queries to be `10000` on all tests and the attack budget will be set uniformly by 
-```
-CIFAR: 	l_inf：0.05 = 12.75/255, l_2: 1 = 255/255
-ImageNet: l_inf: 0.05 =  12.75/255, l_2: 5 = 1275/255	
-```
-
-where `l_inf` represents l_infty norm perturbation and `l_2` represents l_2 norm perturbation.
-
-
-#### 3. Run Attacks
-
-After modifying the attacks config files in [config-jsons](./config-jsons) as desired, include config files of the considered attacks in [attack_cifar10.py](./attack_cifar10.py) as follows (running attack on cifar-10 as an example):
-
-```
-python attack_cifar10.py ***.json
-```
----
-### Supported attacks
-
-| Score-Based Black-box attack|File name| Paper| 
+| Score-Based |File name| Paper|
 | :------------- |:-------------|:-----|
 | NES Attack   | [nes_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/nes_attack.py) |[Black-box Adversarial Attacks with Limited Queries and Information](https://arxiv.org/abs/1804.08598) ICML 2018|
 | ZO-signSGD  | [zo_sign_agd_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/zo_sign_sgd_attack.py)  |[signSGD via Zeroth-Order Oracle](https://openreview.net/forum?id=BJe-DsC5Fm) ICLR 2019|
@@ -126,9 +109,7 @@ python attack_cifar10.py ***.json
 | Sign Hunter   | [sign_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/sign_attack.py) |[Sign Bits Are All You Need for Black-Box Attacks](https://openreview.net/forum?id=SygW0TEFwH) ICLR 2020|
 | Square Attack   | [square_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/score-based%20attacks/square_attack.py) |[Square Attack: a query-efficient black-box adversarial attack via random search](https://arxiv.org/abs/1912.00049) ECCV 2020|
 
-
-
-| Decision-Based Black-box attack|File name| Paper| 
+| Decision-Based |File name| Paper|
 | :------------- |:-------------|:-----|
 | Boundary Attack | [boundary_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/boundary_attack.py) |[Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models](https://arxiv.org/abs/1712.04248) ICLR 2017|
 | OPT   | [opt_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/opt_attack.py) |[Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach](https://arxiv.org/abs/1807.04457) ICLR 2019|
@@ -139,101 +120,155 @@ python attack_cifar10.py ***.json
 | Sign Flip Attack   | [sign_flip_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/sign_flip_attack.py) |[Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php) ECCV 2020|
 | RayS  | [rays_attack.py](https://github.com/SCLBD/B-box/blob/main/attacks/decision-based%20attacks/rays_attack.py) | [RayS: A Ray Searching Method for Hard-label Adversarial Attack](https://arxiv.org/abs/2006.12792) KDD 2020|
 
+### <span id="query-supported-dataset">💡Supported datasets</span>
+
+[CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), [ImageNet](https://www.kaggle.com/c/nips-2017-non-targeted-adversarial-attack/overview/dataset). Please first download these two datasets into `query/data/`. Here, we test the contained attack methods on the whole CIFAR-10 testing set and ImageNet competition dataset comprised of [1000 samples](https://drive.google.com/file/d/1QGldLJtVXCU_hG6XYY5ju48W4X1ioA7l/view?usp=sharing).
+
+### <span id="query-supported-models">💡Supported models</span>
+
+BlackboxBench evaluates contained query-based attack methods on the below models 👇. But users can attack any model trained on CIFAR-10 and ImageNet by adding it into BlackboxBench, following the step 1️⃣ in `Quick start`.
+
+![transfer_supported_models](transfer/plt/plot/query_supported_models.png)
 
 
-### Supported datasets
-[CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), [ImageNet](https://www.kaggle.com/c/nips-2017-non-targeted-adversarial-attack/overview/dataset). Please first download these two datasets into `data/`. Here, we test the contained attack methods on the whole CIFAR-10 testing set and ImageNet competition dataset comprised of [1000 samples](https://drive.google.com/file/d/1QGldLJtVXCU_hG6XYY5ju48W4X1ioA7l/view?usp=sharing).
 
-### Supported testing models
+---
 
-You can test all models trained on CIFAR-10 and ImageNet by adding loading code of your testing model in [utils/model_loader.py](./utils/model_loader.py).
-Here, we test the contained attack methods on the below models.
-+ **CIFAR-10**: ResNet-50, WideResNet-28, AT-l_inf-WideResNet-28 [(with extra data (Gowal et al., 2020))](https://arxiv.org/abs/2010.03593), AT-l_inf-WideResNet-28 [(with data from DDPM (Rebuffi et al., 2021))](https://arxiv.org/abs/2103.01946).
-For ResNet-50 and WideResNet-28, we train them by using the code from this [github repo](https://github.com/kuangliu/pytorch-cifar). 
+## <span id="analysis-tools">Analysis tools</span>
 
-+ **ImageNet**: ResNet-50, Inception-v3, AT-l_inf-ResNet-50 (4/255) [(Salman et al., 2020)](https://github.com/microsoft/robust-models-transfer), FastAT-l_inf-ResNet-50 (4/255) [(Wong et al., 2020)](https://github.com/locuslab/fast_adversarial).
-For ResNet-50 and Inception-v3, we use the provided pretrained model from [torchvision](https://pytorch.org/vision/stable/index.html).
-
-### Supported defense methods
-Here, we also provide several defense methods against black-box attacks. 
-
-+ **Random Noise Defense Against Query-Based Black-Box Attacks (RND) [(Qin et al., 2021)](https://arxiv.org/abs/2104.11470)**: RND is a lightweight and plug and play defense method against query-based attacks. It is realized by adding a random noise to each query at the inference time (one line code in Pytorch: x = x + noise_size * torch.randn like(x)). You can just tune the sigma (noise_size) to conduct RND in [attack_cifar10.py](./attack_cifar10.py) & [attack_imagenet.py](./attack_imagenet.py).
+Analysis tools will be released soon!
 
 
-## [Citation](#citation)
 
-<a href="#top">[Back to top]</a>
+---
 
-If you want to use this library in your research, cite it as
-follows:
+## <span id="how-to-contribute">How to contribute</span>
 
-```
-   @misc{blackboxbench,
-      title={BlackboxBench (Python Library)},
-      author={Zeyu Qin and Xuanchen Yan and Baoyuan Wu},
-      year={2022},
-      url={https://github.com/SCLBD/BlackboxBench}
-   }
+You are welcome to contribute your black-box attacks or defenses to BlackBoxBench! 🤩
 
-```
+In the following sections there are some tips on how to prepare you attack.
 
+### 🚀 Adding a new transfer-based attack
 
-If interested, you can read our recent works about black-box attack and defense methods, and more works about trustworthy AI can be found [here](https://sites.google.com/site/baoyuanwu2015/home).
+##### 👣 Core function
+
+We divide various efforts to improve I-FGSM into four distinct perspectives: data, optimization, feature and model. Attacks belonging to different perspectives can be implemented by modifying below blocks:
+
+[input_transformation.py](transfer/input_transformation.py): the block registering various input transformation functions. Attacks from data perspective are most likely to happen here. For example, the key of DI-FGSM is randomly resizing the image, so its core function is defined here:
 
 ```
-@inproceedings{cgattack-cvpr2022,
-  title={Boosting Black-Box Attack with Partially Transferred Conditional Adversarial Distribution},
-  author={Feng, Yan and Wu, Baoyuan and Fan, Yanbo and Liu, Li and Li, Zhifeng and Xia, Shutao},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year={2022}
-}
+@Registry.register("input_transformation.DI")
+def DI(in_size, out_size):
+    def _DI(iter, img, true_label, target_label, ensemble_models, grad_accumulate, grad_last, n_copies_iter):
+        ...
+        return padded
+    return _DI
+```
 
-@article{rnd-blackbox-defense-nips2021,
-  title={Random Noise Defense Against Query-Based Black-Box Attacks},
-  author={Qin, Zeyu and Fan, Yanbo and Zha, Hongyuan and Wu, Baoyuan},
-  journal={Advances in Neural Information Processing Systems},
-  volume={34},
-  year={2021}
-}
+[loss_function.py](transfer/loss_function.py): the block registering various loss functions. Attacks from feature perspective are most likely to happen here. For example, the key of FIA is designing a new loss function, so its core function is defined here:
 
-@inproceedings{liang2021parallel,
-  title={Parallel Rectangle Flip Attack: A Query-Based Black-Box Attack Against Object Detection},
-  author={Liang, Siyuan and Wu, Baoyuan and Fan, Yanbo and Wei, Xingxing and Cao, Xiaochun},
-  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
-  pages={7697--7707},
-  year={2021}
-}
+```
+@Registry.register("loss_function.fia_loss")
+def FIA(fia_layer, N=30, drop_rate=0.3):
+    ...
+    def _FIA(args, img, true_label, target_label, ensemble_models):
+        ...
+        return -loss if args.targeted else loss
+    return _FIA
+```
 
-@inproceedings{chen2020boosting,
-  title={Boosting decision-based black-box adversarial attacks with random sign flip},
-  author={Chen, Weilun and Zhang, Zhaoxiang and Hu, Xiaolin and Wu, Baoyuan},
-  booktitle={European Conference on Computer Vision},
-  pages={276--293},
-  year={2020},
-  organization={Springer}
-}
+[gradient_calculation.py](transfer/gradient_calculation.py): the block registering various ways to calculate gradients. Attacks from optimization perspective are most likely to happen here. For example, the key of SGM is using gradients more from the skip connections, so its core function is defined here:
 
-@inproceedings{evolutionary-blackbox-attack-cvpr2019,
-  title={Efficient decision-based black-box adversarial attacks on face recognition},
-  author={Dong, Yinpeng and Su, Hang and Wu, Baoyuan and Li, Zhifeng and Liu, Wei and Zhang, Tong and Zhu, Jun},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={7714--7722},
-  year={2019}
+```
+@Registry.register("gradient_calculation.skip_gradient")
+def skip_gradient(gamma):
+		...
+    def _skip_gradient(args, iter, adv_img, true_label, target_label, grad_accumulate, grad_last, input_trans_func, ensemble_models, loss_func):
+        ...
+        return gradient
+    return _skip_gradient
+```
+
+[update_dir_calculation.py](transfer/update_dir_calculation.py): the block registering various ways to calculate update direction on adversarial examples. Attacks from optimization perspective are most likely to happen here. For example, the key of MI is using the accumulated gradient as update direction, so its core function is defined here:
+
+```
+@Registry.register("update_dir_calculation.momentum")
+def momentum():
+    def _momentum(args, gradient, grad_accumulate, grad_var_last):
+        ...
+        return update_dir, grad_accumulate
+    return _momentum
+```
+
+[model_refinement.py](transfer/model_refinement.py): the block registering various ways to refine the surrogate model. Attacks from model perspective are most likely to happen here. For example, the key of LGV is finetune model with a high learning rate, so its core function is defined here:
+
+```
+@Registry.register("model_refinement.stochastic_weight_collecting")
+def stochastic_weight_collecting(collect, mini_batch=512, epochs=10, lr=0.05, wd=1e-4, momentum=0.9):
+    def _stochastic_weight_collecting(args, rfmodel_dir):
+        ...
+    return _stochastic_weight_collecting
+```
+
+Design your core function and register it in the suitable `.py` file to fit into our unified attack pipeline.
+
+##### 👣 Config file
+
+ You should also fill a json file which is structured in the following way and put it in `transfer/config/<DATASET>/<TARGET>/<L-NORM>/<YOUR-METHOD>.py`. Here is an example from [transfer/config/NIPS2017/untargeted/l_inf/I-FGSM.json](transfer/config/NIPS2017/untargeted/l_inf/I-FGSM.json)):
+
+```
+{
+  "source_model_path": ["NIPS2017/pretrained/resnet50"],
+  "target_model_path": ["NIPS2017/pretrained/resnet50",
+                        "NIPS2017/pretrained/vgg19_bn",
+                        "NIPS2017/pretrained/resnet152"],
+  "n_iter": 100,
+  "shuffle": true,
+  "batch_size": 200,
+  "norm_type": "inf",
+  "epsilon": 0.03,
+  "norm_step": 0.00392157,
+  "seed": 0,
+  "n_ensemble": 1,
+  "targeted": false,
+  "save_dir": "./save",
+
+  "input_transformation": "",
+  "loss_function": "cross_entropy",
+  "grad_calculation": "general",
+  "backpropagation": "nonlinear",
+  "update_dir_calculation": "sgd",
+  "source_model_refinement": ""
 }
 ```
 
-## [Contributors](#contributors)
+Make sure your core function is well specified in the last six fields.
 
-[Zeyu Qin](https://github.com/Alan-Qin), Run Liu, Xuanchen Yan
 
-## [Copyright](#copyright)
 
-<a href="#top">[Back to top]</a>
+---
+
+## <span id="citation">Citation</span>
+
+If you want to use BlackboxBench in your research, cite it as follows:
+
+```
+@misc{zheng2023blackboxbench,
+      title={BlackboxBench: A Comprehensive Benchmark of Black-box Adversarial Attacks}, 
+      author={Meixi Zheng and Xuanchen Yan and Zihao Zhu and Hongrui Chen and Baoyuan Wu},
+      year={2023},
+      eprint={2312.16979},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR}
+}
+```
+
+
+
+---
+
+## <span id="copyright">Copyright</span>
 
 The source code of this repository is licensed by [The Chinese University of Hong Kong, Shenzhen](https://www.cuhk.edu.cn/en) under Creative Commons Attribution-NonCommercial 4.0 International Public License (identified as [CC BY-NC-4.0 in SPDX](https://spdx.org/licenses/)). More details about the license could be found in [LICENSE](./LICENSE).
 
-
-This project is built by the Secure Computing Lab of Big Data ([SCLBD](http://scl.sribd.cn/index.html)) at The Chinese University of Hong Kong, Shenzhen and Shenzhen Research Institute of Big Data, directed by Professor [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/home). SCLBD focuses on research of trustworthy AI, including backdoor learning, adversarial examples, federated learning, fairness, etc.
-
-
-
+This project is built by the Secure Computing Lab of Big Data ([SCLBD](http://scl.sribd.cn/index.html)) at The Chinese University of Hong Kong, Shenzhen, directed by Professor [Baoyuan Wu](https://sites.google.com/site/baoyuanwu2015/home). SCLBD focuses on research of trustworthy AI, including backdoor learning, adversarial examples, federated learning, fairness, etc.
