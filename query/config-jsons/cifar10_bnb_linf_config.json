@@ -1,0 +1,26 @@
+{
+  "_comment1": "===== DATASET CONFIGURATION =====",
+  "dset_name": "cifar10",
+  "dset_config": {},
+  "_comment2": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 1,
+  "eval_batch_size": 1,
+  "_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "attack_name": "BNBAttack",
+  "attack_config": {
+    "epsilon": 12.75,
+    "p": "inf",
+    "max_queries": 1000,
+    "overshoot": 1.1,
+    "steps": 1000,
+    "lr": 1e-3,
+    "lr_decay": 0.5,
+    "lr_num_decay": 20,
+    "momentum": 0.8,
+    "binary_search_steps": 10
+  },
+  "device": "cpu",
+  "modeln": "vgg",
+  "target": false,
+  "target_type": "median"
+}

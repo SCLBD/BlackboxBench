@@ -1,0 +1,26 @@
+{
+  "_comment1": "===== DATASET CONFIGURATION =====",
+  "dset_name": "cifar10",
+  "dset_config": {},
+  "_comment2": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "attack_name": "BoundaryAttack",
+  "attack_config": {
+    "batch_size": 1,
+    "epsilon": 255,
+    "p": "2",
+    "max_queries": 10000,
+    "steps": 25000,
+    "spherical_step": 0.01,
+    "source_step": 0.01,
+    "source_step_convergance": 1e-7,
+    "step_adaptation": 1.5,
+    "update_stats_every_k": 10
+  },
+  "device": "gpu",
+  "modeln": "wrn28",
+  "target": false,
+  "target_type": "median",
+  "seed": 123
+}

@@ -1,0 +1,11 @@
+## Files in the folder
+- `decision-based attacks/`
+  - `decision_black_box_attack.py`: **This is the base attack class file that wrapper all decision-based attacks.**
+  - `boundary_attack.py`: Code for Boundary Attack: [Decision-Based Adversarial Attacks: Reliable Attacks Against Black-Box Machine Learning Models](https://arxiv.org/abs/1712.04248) ICLR 2017
+  - `opt_attack.py`: Code for OPT: [Query-Efficient Hard-label Black-box Attack: An Optimization-based Approach](https://arxiv.org/abs/1807.04457) ICLR 2019
+  - `sign_opt.py`: Code for Sign OPT: [Sign OPT: A Query Efficient Hard label Adversarial Attack](https://arxiv.org/abs/1909.10773) ICLR 2020
+  - `evo_attack.py`: Code for Evolutionary Attack: [Efficient Decision based Blackbox Adversarial Attacks on Face Recognition](https://arxiv.org/abs/1904.04433) CVPR 2019
+  - `geoda_attack.py`: Code for GeoDA: [GeoDA: a geometric framework for blackbox adversarial attacks](https://arxiv.org/abs/2003.06468) CVPR 2020
+  - `hsja_attack.py`: Code for HSJA: [HopSkipJumpAttack: A Query Efficient Decision Based Attack](https://arxiv.org/abs/1904.02144) IEEE S&P 2020
+  - `rays_attack.py`: Code for Rays Attack: [RayS: A Ray Searching Method for Hard-label Adversarial Attack](https://arxiv.org/abs/2006.12792) KDD 2020
+  - `sign_flip_attack.py`: Code for Sign Flip Attack: [Boosting Decision based Blackbox Adversarial Attacks with Random Sign Flip](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/2336_ECCV_2020_paper.php) ECCV 2020

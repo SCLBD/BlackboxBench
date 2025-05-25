@@ -1,0 +1,27 @@
+{
+  "_comment1": "===== DATASET CONFIGURATION =====",
+  "dset_name": "cifar10",
+  "dset_config": {},
+  "_comment2": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "attack_name": "GeoDAttack",
+  "attack_config": {
+    "batch_size": 1,
+    "epsilon": 12.75,
+    "p": "inf",
+    "max_queries": 10000,
+    "sub_dim": 10,
+    "tol": 0.0001,
+    "alpha": 0.0002,
+    "mu": 0.6,
+    "search_space": "sub",
+    "grad_estimator_batch_size": 40,
+    "sigma": 0
+  },
+  "device": "gpu",
+  "modeln": "wrn28",
+  "target": false,
+  "target_type": "median",
+  "seed":123
+}

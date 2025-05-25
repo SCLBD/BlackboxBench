@@ -1,0 +1,11 @@
+## Files in the folder
+- `score-based attacks/`
+  - `score_black_box_attack.py`: **This is the base attack class file that wrapper all score-based attacks.**
+  - `bandit_attack.py`: Code for Bandit Attack: [Prior Convictions: Black-Box Adversarial Attacks with Bandits and Priors](https://arxiv.org/abs/1807.07978) ICML 2019
+  - `nes_attack.py`: Code for NES Attack: [Black-box Adversarial Attacks with Limited Queries and Information](https://arxiv.org/abs/1804.08598) ICML 2018
+  - `parsimonious_attack.py`: Code for ECO Attack: [Parsimonious Black-Box Adversarial Attacks via Efficient Combinatorial Optimization](https://arxiv.org/abs/1905.06635) ICML 2019
+  - `score_black_box_attack.py`: **This is the base attack class file that wrapper all score-based attacks.**
+  - `sign_attack.py`: Code for Sign Attack: [Sign Bits Are All You Need for Black-Box Attacks](https://openreview.net/forum?id=SygW0TEFwH) ICLR 2020
+  - `simple_attack.py`: Code for Simple Attack: [Simple Black-box Adversarial Attacks](https://arxiv.org/abs/1905.07121) ICML 2019
+  - `square_attack.py`: Code for HSJA: [Square Attack: a query-efficient black-box adversarial attack via random search](https://arxiv.org/abs/1912.00049) ECCV 2020 
+  - `zo_sign_agd_attack.py`: Code for Sign Attack: [signSGD via Zeroth-Order Oracle](https://openreview.net/forum?id=BJe-DsC5Fm) ICLR 2019

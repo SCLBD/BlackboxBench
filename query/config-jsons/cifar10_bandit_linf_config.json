@@ -1,0 +1,27 @@
+{
+  "_comment1": "===== DATASET CONFIGURATION =====",
+  "dset_name": "cifar10",
+  "dset_config": {},
+  "_comment2": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "_comment3": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "attack_name": "BanditAttack",
+  "attack_config": {
+    "batch_size" : 50,
+    "name": "Bandit",
+    "epsilon": 12.75,
+    "p": "inf",
+    "lr": 2.55,
+    "fd_eta": 2.55,
+    "prior_lr": 0.1,
+    "prior_size": 20,
+    "data_size": 32,
+    "prior_exploration": 0.1,
+    "max_loss_queries": 10000
+  },
+  "device": "/gpu:1",
+  "modeln": "vgg",
+  "target": false,
+  "target_type": "median",
+  "seed": 123
+}
