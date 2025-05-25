@@ -1,0 +1,12 @@
+{
+    "shuffle": true,
+    "norm_type":"inf",
+    "n_ensemble": 1,
+
+
+    "input_transformation": "",
+    "loss_function": "max_logit",
+    "grad_calculation": "PGN_grad(zeta=3, delta=0.5, N=20)",
+    "backpropagation": "nonlinear",
+    "update_dir_calculation": "sgd"
+  }

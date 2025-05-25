@@ -1,0 +1,12 @@
+{
+  "shuffle": true,
+  "norm_type": "2",
+  "n_ensemble": 5,
+  "emsemble_type": "loss",
+
+  "input_transformation": "",
+  "loss_function": "max_logit",
+  "grad_calculation": "general",
+  "backpropagation": "nonlinear",
+  "update_dir_calculation": "sgd"
+}

@@ -1,0 +1,12 @@
+{
+    "shuffle": false,
+    "norm_type": "inf",
+    "n_ensemble": 5,
+    "decay_factor": 1.0,
+
+    "input_transformation": "",
+    "loss_function": "max_logit",
+    "grad_calculation": "svre",
+    "backpropagation": "nonlinear",
+    "update_dir_calculation": "sgd"
+  }
