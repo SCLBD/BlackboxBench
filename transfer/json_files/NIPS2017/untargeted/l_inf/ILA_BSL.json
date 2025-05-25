@@ -1,0 +1,14 @@
+{
+  "shuffle": true,
+  "norm_type": "inf",
+  "targeted": false,
+  "n_ensemble": 1,
+
+  "input_transformation": "",
+  "loss_function": "cross_entropy",
+  "grad_calculation": "general",
+  "backpropagation": "nonlinear",
+  "update_dir_calculation": "sgd",
+
+  "as_baseline": true
+}

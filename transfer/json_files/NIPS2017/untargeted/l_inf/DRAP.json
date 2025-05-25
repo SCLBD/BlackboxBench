@@ -1,0 +1,13 @@
+{
+  "shuffle": true,
+  "norm_type": "inf",
+  "targeted": false,
+  "n_ensemble": 1,
+  "decay_factor": 1,
+
+  "input_transformation": "",
+  "loss_function": "cross_entropy",
+  "grad_calculation": "rap_new(model_num=40, late_start=5, reverse_step=5, reverse_step_size=0.1)",
+  "backpropagation": "nonlinear",
+  "update_dir_calculation": "momentum"
+}

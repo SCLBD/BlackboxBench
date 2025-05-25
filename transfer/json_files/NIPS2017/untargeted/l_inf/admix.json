@@ -1,0 +1,12 @@
+{
+  "shuffle": true,
+  "norm_type": "inf",
+  "targeted": false,
+  "n_ensemble": 1,
+
+  "input_transformation": "admix(strength=0.2, n_samples=3)|SI(n_copies=5)",
+  "loss_function": "cross_entropy",
+  "grad_calculation": "general",
+  "backpropagation": "nonlinear",
+  "update_dir_calculation": "sgd"
+}
