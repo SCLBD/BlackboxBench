@@ -1,0 +1,24 @@
+{
+  "source_model_path": ["CIFAR10/pretrained/vgg19_bn"],
+  "target_model_path": ["CIFAR10/pretrained/vgg19_bn",
+                        "CIFAR10/pretrained/wrn",
+                        "CIFAR10/pretrained/resnext",
+                        "CIFAR10/pretrained/densenet",
+                        "CIFAR10/pretrained/pyramidnet272",
+                        "CIFAR10/pretrained/gdas"],
+  "n_iter": 100,
+  "shuffle": true,
+  "batch_size": 500,
+  "norm_type": "inf",
+  "epsilon": 0.03,
+  "norm_step": 0.00392156,
+  "seed": 0,
+  "n_ensemble": 1,
+  "targeted": true,
+
+  "input_transformation": "DI(in_size=32, out_size=40)",
+  "loss_function": "cross_entropy",
+  "grad_calculation": "general",
+  "backpropagation": "nonlinear",
+  "update_dir_calculation": "sgd"
+}
