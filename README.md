@@ -14,6 +14,7 @@
 ✨ BlackBoxBench will be continuously updated by adding more attacks and supporting compatibility with more model architectures. ✨
 
 ✨ BlackboxBench has been accepted to **IEEE TPAMI**! ✨
+🚧 BlackboxBench-V3 is on the way! Exciting updates are coming soon — stay tuned!
 
 ✨ **You are welcome to contribute your black-box attack methods to BlackBoxBench!!**  See [how to contribute](#how-to-contribute)✨
 
