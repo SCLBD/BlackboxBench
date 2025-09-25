@@ -253,13 +253,11 @@ Make sure your core function is well specified in the last six fields.
 If you want to use BlackboxBench in your research, cite it as follows:
 
 ```
-@misc{zheng2023blackboxbench,
-      title={BlackboxBench: A Comprehensive Benchmark of Black-box Adversarial Attacks}, 
-      author={Meixi Zheng and Xuanchen Yan and Zihao Zhu and Hongrui Chen and Baoyuan Wu},
-      year={2023},
-      eprint={2312.16979},
-      archivePrefix={arXiv},
-      primaryClass={cs.CR}
+@article{zheng2025blackboxbench,
+  title={Blackboxbench: A comprehensive benchmark of black-box adversarial attacks},
+  author={Zheng, Meixi and Yan, Xuanchen and Zhu, Zihao and Chen, Hongrui and Wu, Baoyuan},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025}
 }
 ```
 
